@@ -1689,7 +1689,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 0}
   settingsScreen: {fileID: 0}
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 087d5e8d6078c394580930ee1129cd42, type: 2}
   audioParameters:
   - groupName: MasterVolume
     slider: {fileID: 59714617}
