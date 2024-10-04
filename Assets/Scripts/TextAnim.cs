@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -25,9 +24,6 @@ public class TextAnim : MonoBehaviour
         bigButt.eventID = EventTriggerType.PointerEnter;
         bigButt.callback.AddListener((eventData) => { _transform.localScale = new Vector3(1.1f, 1.1f, 1.1f); });
         
-        _button.AddComponent<EventTrigger>();
-        _button.GetComponent<EventTrigger>().triggers.Add(bigButt);
-        _button.GetComponent<EventTrigger>().triggers.Add(smallButt);
         
     }
     

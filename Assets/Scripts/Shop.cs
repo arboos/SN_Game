@@ -14,7 +14,7 @@ public class Shop : MonoBehaviour
     public Transform cardsPool;
 
 
-    private void OnEnable()
+    public void Open()
     {
         for (int i = 0; i < itemsCount; i++)
         {

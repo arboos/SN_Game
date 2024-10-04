@@ -8,70 +8,80 @@ using UnityEngine.UI;
 
 public class EnemyPreset : MonoBehaviour
 {
-    public int currentTurnIndex;
-    public List<Turn> presets;
-    public List<GameObject> playedCards;
-    [SerializeField] private PlayerProperties player;
+	public int currentTurnIndex;
+	public List<Turn> presets;
+	public List<GameObject> playedCards;
+	[SerializeField] private PlayerProperties player;
 
-    public int HP;
-    public int MaxHP;
-    public float DamageResistance;
+	public int HP;
+	public int MaxHP;
+	public float DamageResistance;
 
-    [SerializeField] private Image HPBar;
-    public TextMeshProUGUI outputField;
+	[SerializeField] private Image HPBar;
+	public TextMeshProUGUI outputField;
 	[SerializeField] private GameObject nextTurn;
 
+	public bool isDead = false;
+
 	[Serializable]
-    public struct Turn
-    {
-        public GameObject[] cards;
-    }
-    
-    public void TakeDamage(int damage)
-    {
-        if (HP - (int)(damage * DamageResistance) <= 0)
-        {
-            HP = 0;
-            UpdateViewModels();
-            Die();
-            return;
-        }
+	public struct Turn
+	{
+		public GameObject[] cards;
+	}
+
+	public void TakeDamage(int damage)
+	{
+
 		if (DamageResistance != 0)
 		{
 			HP -= (int)(damage * DamageResistance);
+			if (HP - (int)(damage * DamageResistance) <= 0)
+			{
+				HP = 0;
+				UpdateViewModels();
+				Debug.Log("L");
+				Die();
+				return;
+			}
 		}
-		else
+		if (HP - damage <= 0)
 		{
-			HP -= damage;
+			HP = 0;
+			UpdateViewModels();
+			Debug.Log("L");
+			Die();
+			return;
 		}
+		HP -= damage;
 		UpdateViewModels();
-    }
+	}
 
-    private void UpdateViewModels()
-    {
-        HPBar.fillAmount = HP / (float)MaxHP;
-    }
+	private void UpdateViewModels()
+	{
+		HPBar.fillAmount = HP / (float)MaxHP;
+	}
 
-    private void Die()
-    {
-	    CardPlacementSystem.Instance.shop.gameObject.SetActive(true);
-    }
-    
-    public IEnumerator TakeTurn()
-    {
-        
-        if (currentTurnIndex >= presets.Count) currentTurnIndex = 0;
-        
-        Turn turn = presets[currentTurnIndex];
+	private void Die()
+	{
+		CardPlacementSystem.Instance.shop.gameObject.SetActive(true);
+		CardPlacementSystem.Instance.shop.Open();
+		transform.parent.gameObject.SetActive(false);
+	}
 
-        int damage = 0;
-        float damageResistance = 1;
-        float heal = 0;
+	public IEnumerator TakeTurn()
+	{
+		if (currentTurnIndex >= presets.Count) currentTurnIndex = 0;
 
-        yield return new WaitForSeconds(1f);
-        foreach (var cardObject in turn.cards)
-        {
-            playedCards.Add(Instantiate(cardObject, CardPlacementSystem.Instance.playboard.transform));
+		Turn turn = presets[currentTurnIndex];
+
+		int damage = 0;
+		float damageResistance = 1;
+		float heal = 0;
+
+		yield return new WaitForSeconds(1f);
+		foreach (var cardObject in turn.cards)
+		{
+			playedCards.Add(Instantiate(cardObject, CardPlacementSystem.Instance.playboard.transform));
 			outputField.text = "Enemy:\n";
 			CardInfo card = cardObject.GetComponent<CardInfo>();
 			damage += card.Damage;
@@ -81,30 +91,30 @@ public class EnemyPreset : MonoBehaviour
 			}
 			heal += card.Heal;
 			if (damage > 0)
-            {
-                outputField.text += "���� ����������: " + damage.ToString() + "\n";
-            }
-            if (damageResistance != 1)
-            {
-                outputField.text += "�������� ����������� �����: " + ((damageResistance) * 100).ToString() + "%\n";
-            }
-            if (heal > 0)
-            {
-                outputField.text += "�������: " + heal.ToString();
-            }
+			{
+				outputField.text += "Damage: " + damage.ToString() + "\n";
+			}
+			if (damageResistance != 1)
+			{
+				outputField.text += "Damage resistance: " + ((damageResistance) * 100).ToString() + "%\n";
+			}
+			if (heal > 0)
+			{
+				outputField.text += "Healing: " + heal.ToString();
+			}
 			yield return new WaitForSeconds(2f);
-        }
+		}
 
-        player.TakeDamage(damage);
-        DamageResistance = 1 - damageResistance;
+		player.TakeDamage(damage);
+		DamageResistance = 1 - damageResistance;
 		currentTurnIndex++;
 
-        int count = CardPlacementSystem.Instance.playboard.transform.childCount;
-        for (int j = 0; j < count; j++)
-        {
-            Destroy(CardPlacementSystem.Instance.playboard.transform.GetChild(j).gameObject);
-        }
-        nextTurn.SetActive(true);
-    }
-    
+		int count = CardPlacementSystem.Instance.playboard.transform.childCount;
+		for (int j = 0; j < count; j++)
+		{
+			Destroy(CardPlacementSystem.Instance.playboard.transform.GetChild(j).gameObject);
+		}
+		nextTurn.SetActive(true);
+	}
+
 }
