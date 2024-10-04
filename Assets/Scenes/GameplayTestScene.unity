@@ -2297,11 +2297,11 @@ MonoBehaviour:
   playboard: {fileID: 1422140617}
   hand: {fileID: 727174412}
   canvas: {fileID: 2049008279}
-  deck: {fileID: 1726593870}
   maxHandCapacity: 8
   maxPlayboardCapacity: 8
   cardTakeAmount: 2
   turnManager: {fileID: 1764698631}
+  deck: {fileID: 1726593870}
   playboardDeck: {fileID: 1422140622}
   handDeck: {fileID: 727174417}
   enemyPreset: {fileID: 1036650001}
@@ -2566,6 +2566,7 @@ MonoBehaviour:
   itemsInShop: []
   itemsCount: 4
   cardsPool: {fileID: 5371784926956379979}
+  buttonPrefab: {fileID: 4997787082985250935, guid: 77c49207faf240a49b5ed80a9ff33a0a, type: 3}
 --- !u!114 &4680675050690834857
 MonoBehaviour:
   m_ObjectHideFlags: 0

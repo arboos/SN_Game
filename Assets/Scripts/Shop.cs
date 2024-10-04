@@ -13,6 +13,8 @@ public class Shop : MonoBehaviour
     
     public Transform cardsPool;
 
+    public GameObject buttonPrefab;
+
 
     public void Open()
     {
@@ -26,19 +28,28 @@ public class Shop : MonoBehaviour
 
         foreach (var item in itemsInShop)
         {
-            var itemSpawned = Instantiate(item, cardsPool);
-            itemSpawned.AddComponent<Button>().onClick.AddListener(delegate
+            var itemSpawned = Instantiate(buttonPrefab, cardsPool);
+            itemSpawned.GetComponent<Image>().sprite = item.GetComponent<Image>().sprite;
+            itemSpawned.GetComponent<Button>().onClick.AddListener(delegate
             {
-                BuyCard(gameObject);
+                print("BUY ON CLICK");
+                BuyCard(item, itemSpawned.GetComponent<Button>());
             });
         }
     }
 
 
-    public void BuyCard(GameObject card)
+    public void BuyCard(GameObject card, Button button)
     {
+        print("BUY CARD");
         CardManager.Instance.allCards.Add(card);
+
+        button.interactable = false;
+        
         itemsInShop.Remove(card);
+        
+        card.GetComponent<CardLogic>().currentContainer = CardPlacementSystem.Instance.deck;
+        Destroy(card.GetComponent<TextAnim>());
         // Receive fame!!!!!!!!
     }
     
@@ -48,11 +59,7 @@ public class Shop : MonoBehaviour
         {
             Destroy(cardsPool.GetChild(i).gameObject);
         }
-
-        // Пока не нужно
-        //
-        // RelativeJoint2D joint2D = new RelativeJoint2D();
-        // joint2D.GetComponent<GameObject>().SetActive(false);
+       
         
         items = new List<GameObject>();
         foreach (var item in itemsInShop)
@@ -64,7 +71,7 @@ public class Shop : MonoBehaviour
 
         for (int i = 0; i < itemsCount; i++)
         {
-            var item = items[Random.Range(0, items.Count)]; 
+            var item = items[Random.Range(0, items.Count)];
             Destroy(item.gameObject.GetComponent<Button>());
             itemsInShop.Add(item);
             items.Remove(item);
@@ -72,10 +79,12 @@ public class Shop : MonoBehaviour
 
         foreach (var item in itemsInShop)
         {
-            var itemSpawned = Instantiate(item, cardsPool);
-            itemSpawned.AddComponent<Button>().onClick.AddListener(delegate
+            var itemSpawned = Instantiate(buttonPrefab, cardsPool);
+            itemSpawned.GetComponent<Image>().sprite = item.GetComponent<Image>().sprite;
+            itemSpawned.GetComponent<Button>().onClick.AddListener(delegate
             {
-                BuyCard(gameObject);
+                print("BUY ON CLICK");
+                BuyCard(item, itemSpawned.GetComponent<Button>());
             });
         }
     }

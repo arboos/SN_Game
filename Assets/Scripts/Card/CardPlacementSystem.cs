@@ -13,12 +13,14 @@ public class CardPlacementSystem : MonoBehaviour
     //[SerializeField] public GameObject deck;
     [SerializeField] public GameObject canvas;
     [Header("������")]
-    [SerializeField] private CardDeck deck;
     [Header("��������� ����")]
     [SerializeField] private int maxHandCapacity;//�������� ���� � ����
     [SerializeField] private int maxPlayboardCapacity; //�������� ���� �� ������� ����
     [SerializeField] private int cardTakeAmount;//���������� ���� ���������� � ������ ������� ����
     [SerializeField] private TurnManager turnManager;
+    
+    //Decks
+    public CardDeck deck;
     public CardDeck playboardDeck;
     public CardDeck handDeck;
 

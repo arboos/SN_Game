@@ -23,7 +23,7 @@ public class TurnManager : MonoBehaviour
         int Heal = 0;
         foreach (GameObject cardObject in cards)
         {
-            outputField.text = "Игрок:\n";
+            outputField.text = "Г€ГЈГ°Г®ГЄ:\n";
             CardInfo card = cardObject.GetComponent<CardInfo>();
             Damage += card.Damage;
             if (card.DamageResistance != 0)
@@ -33,15 +33,15 @@ public class TurnManager : MonoBehaviour
             Heal += card.Heal;
             /*if (Damage > 0)
             {
-                outputField.text += "Урон противнику: " + Damage.ToString() + "\n";
+                outputField.text += "Г“Г°Г®Г­ ГЇГ°Г®ГІГЁГўГ­ГЁГЄГі: " + Damage.ToString() + "\n";
             }
             if (DamageResistance != 1)
             {
-                outputField.text += "Снижение получаемого урона: " + ((1-DamageResistance) * 100).ToString() + "%\n";
+                outputField.text += "Г‘Г­ГЁГ¦ГҐГ­ГЁГҐ ГЇГ®Г«ГіГ·Г ГҐГ¬Г®ГЈГ® ГіГ°Г®Г­Г : " + ((1-DamageResistance) * 100).ToString() + "%\n";
             }
             if (Heal > 0)
             {
-                outputField.text += "Лечение: " + Heal.ToString();
+                outputField.text += "Г‹ГҐГ·ГҐГ­ГЁГҐ: " + Heal.ToString();
             }*/
             yield return new WaitForSeconds(compilationSpeed);
         }
@@ -63,7 +63,7 @@ public class TurnManager : MonoBehaviour
 		int Damage = 0;
 		float DamageResistance = 1;
 		int Heal = 0;
-		outputField.text = "Игрок:\n";
+		outputField.text = "Г€ГЈГ°Г®ГЄ:\n";
 		foreach (GameObject cardObject in cards)
 		{
 			CardInfo card = cardObject.GetComponent<CardInfo>();
@@ -77,15 +77,15 @@ public class TurnManager : MonoBehaviour
 		}
 		if (Damage > 0)
 		{
-			outputField.text += "Урон противнику: " + Damage.ToString() + "\n";
+			outputField.text += "Г“Г°Г®Г­ ГЇГ°Г®ГІГЁГўГ­ГЁГЄГі: " + Damage.ToString() + "\n";
 		}
 		if (DamageResistance != 1)
 		{
-			outputField.text += "Снижение получаемого урона: " + ((1 - DamageResistance) * 100).ToString() + "%\n";
+			outputField.text += "Г‘Г­ГЁГ¦ГҐГ­ГЁГҐ ГЇГ®Г«ГіГ·Г ГҐГ¬Г®ГЈГ® ГіГ°Г®Г­Г : " + ((1 - DamageResistance) * 100).ToString() + "%\n";
 		}
 		if (Heal > 0)
 		{
-			outputField.text += "Лечение: " + Heal.ToString() + "\n";
+			outputField.text += "Г‹ГҐГ·ГҐГ­ГЁГҐ: " + Heal.ToString() + "\n";
 		}
 	}
 }

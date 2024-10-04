@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3015898473462528343}
   - component: {fileID: 2054343178121247736}
   - component: {fileID: 8040456618209215539}
-  - component: {fileID: -8144673194526552283}
   m_Layer: 5
   m_Name: Card (12)
   m_TagString: Untagged
@@ -111,15 +110,3 @@ MonoBehaviour:
   isPickedUp: 0
   currentContainer: {fileID: 0}
   followMouseSpeed: 10
---- !u!114 &-8144673194526552283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4997787082985250935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9466b633eab2a9b4d8f3e34f4e2874c2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
