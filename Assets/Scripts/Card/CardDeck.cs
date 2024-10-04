@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class CardDeck : MonoBehaviour
 {
+    public int deckCapacity;
     public List<GameObject> cardsInDeck;
 
     private void Start()
@@ -54,6 +55,12 @@ public class CardDeck : MonoBehaviour
         if (card == null)
         {
             print("GameObject card is null");
+            return;
+        }
+
+        if (cardsInDeck.Count >= deckCapacity)
+        {
+            print("Max deck capacity in : " + gameObject.name);
             return;
         }
         cardsInDeck.Add(card);
