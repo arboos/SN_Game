@@ -90,9 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 8
-  Damage: 0
+  Damage: 1
   DamageResistance: 11
-  Heal: 20
+  Heal: 1
 --- !u!114 &8040456618209215539
 MonoBehaviour:
   m_ObjectHideFlags: 0

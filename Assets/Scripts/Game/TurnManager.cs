@@ -19,16 +19,16 @@ public class TurnManager : MonoBehaviour
         var cards = cardsField.cardsInDeck;
 
 		int Damage = 0;
-        float DamageResistance = 1;
+        float DamageResistance = 0;
         int Heal = 0;
         foreach (GameObject cardObject in cards)
         {
-            outputField.text = "Èãðîê:\n";
+            outputField.text = "Игрок:\n";
             CardInfo card = cardObject.GetComponent<CardInfo>();
             Damage += card.Damage;
             if (card.DamageResistance != 0)
             {
-				DamageResistance *= (card.DamageResistance /100f);
+				DamageResistance += (card.DamageResistance /100f);
             }
             Heal += card.Heal;
             /*if (Damage > 0)
@@ -61,31 +61,31 @@ public class TurnManager : MonoBehaviour
     {
 		var cards = cardsField.cardsInDeck;
 		int Damage = 0;
-		float DamageResistance = 1;
+		float DamageResistance = 0;
 		int Heal = 0;
-		outputField.text = "Èãðîê:\n";
+		outputField.text = "Игрок:\n";
 		foreach (GameObject cardObject in cards)
 		{
 			CardInfo card = cardObject.GetComponent<CardInfo>();
 			Damage += card.Damage;
 			if (card.DamageResistance != 0)
 			{
-				DamageResistance *= (card.DamageResistance / 100f);
+				DamageResistance += (card.DamageResistance / 100f);
 			}
 			Heal += card.Heal;
 			
 		}
 		if (Damage > 0)
 		{
-			outputField.text += "Óðîí ïðîòèâíèêó: " + Damage.ToString() + "\n";
+			outputField.text += "Урон: " + Damage.ToString() + "\n";
 		}
 		if (DamageResistance != 1)
 		{
-			outputField.text += "Ñíèæåíèå ïîëó÷àåìîãî óðîíà: " + ((1 - DamageResistance) * 100).ToString() + "%\n";
+			outputField.text += "Защита: " + ((DamageResistance) * 100).ToString() + "%\n";
 		}
 		if (Heal > 0)
 		{
-			outputField.text += "Ëå÷åíèå: " + Heal.ToString() + "\n";
+			outputField.text += "Лечение: " + Heal.ToString() + "\n";
 		}
 	}
 }

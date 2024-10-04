@@ -67,6 +67,8 @@ public class EnemyPreset : MonoBehaviour
 		CardPlacementSystem.Instance.shop.Open();
 		MenuManager.Instance.winScreen.SetActive(true);
 		transform.parent.gameObject.SetActive(false);
+		//ÏÅÍÈÑ ÁÎÁÐÀ 8================d
+
 	}
 
 	public IEnumerator TakeTurn()
@@ -76,7 +78,7 @@ public class EnemyPreset : MonoBehaviour
 		Turn turn = presets[currentTurnIndex];
 
 		int damage = 0;
-		float damageResistance = 1;
+		float damageResistance = 0;
 		float heal = 0;
 
 		yield return new WaitForSeconds(1f);
@@ -88,7 +90,7 @@ public class EnemyPreset : MonoBehaviour
 			damage += card.Damage;
 			if (card.DamageResistance != 0)
 			{
-				damageResistance *= (card.DamageResistance / 100f);
+				damageResistance += (card.DamageResistance / 100f);
 			}
 			heal += card.Heal;
 			if (damage > 0)
