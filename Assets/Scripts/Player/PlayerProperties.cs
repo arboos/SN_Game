@@ -22,11 +22,13 @@ public class PlayerProperties : MonoBehaviour
             return;
         }
         HP -= damage * damageResistance;
+        UpdateViewModels();
     }
 
     public void Heal(int heal)
     {
         HP = Mathf.Clamp(HP + heal,0,maxHP);
+        UpdateViewModels();
     }
 
     public void SetResistance(int resistance)

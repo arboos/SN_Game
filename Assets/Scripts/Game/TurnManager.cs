@@ -14,14 +14,17 @@ public class TurnManager : MonoBehaviour
     private IEnumerator CountValues()
     {
         int Damage = 0;
-        int DamageResistance = 1;
+        float DamageResistance = 1;
         int Heal = 0;
         foreach (GameObject cardObject in cardsField.cardsInDeck)
         {
             outputField.text = "Игрок:\n";
             CardInfo card = cardObject.GetComponent<CardInfo>();
             Damage += card.Damage;
-            DamageResistance *= card.DamageResistance;
+            if (card.DamageResistance != 0)
+            {
+				DamageResistance *= (card.DamageResistance /100f);
+            }
             Heal += card.Heal;
             if (Damage > 0)
             {
@@ -29,7 +32,7 @@ public class TurnManager : MonoBehaviour
             }
             if (DamageResistance != 1)
             {
-                outputField.text += "Снижение получаемого урона: " + DamageResistance.ToString() + "%\n";
+                outputField.text += "Снижение получаемого урона: " + ((1-DamageResistance) * 100).ToString() + "%\n";
             }
             if (Heal > 0)
             {
