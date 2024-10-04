@@ -90,6 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 5
+  Damage: 0
+  DamageResistance: 78
+  Heal: 0
 --- !u!114 &1718803109314453127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,4 +108,5 @@ MonoBehaviour:
   currentParent: {fileID: 0}
   placementSystem: {fileID: 0}
   isPickedUp: 0
+  currentContainer: {fileID: 0}
   followMouseSpeed: 10
