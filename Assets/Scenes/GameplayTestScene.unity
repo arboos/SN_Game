@@ -131,6 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 448958976}
+  - component: {fileID: 448958977}
   m_Layer: 0
   m_Name: HandDeck
   m_TagString: Untagged
@@ -153,6 +154,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &448958977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448958975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42faf04d98aac7a44a5dbbf37e91f0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsInDeck: []
 --- !u!1 &727174412
 GameObject:
   m_ObjectHideFlags: 0
@@ -263,6 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 865548556}
+  - component: {fileID: 865548557}
   m_Layer: 0
   m_Name: BattleDeck
   m_TagString: Untagged
@@ -285,6 +300,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &865548557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865548555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42faf04d98aac7a44a5dbbf37e91f0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsInDeck: []
 --- !u!1 &1078160627
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,6 +674,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1726593869}
+  - component: {fileID: 1726593870}
   m_Layer: 0
   m_Name: Deck
   m_TagString: Untagged
@@ -668,6 +697,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1726593870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726593868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42faf04d98aac7a44a5dbbf37e91f0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardsInDeck: []
 --- !u!1 &2049008279
 GameObject:
   m_ObjectHideFlags: 0
