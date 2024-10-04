@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CardPlacementSystem : MonoBehaviour
 {
+    public static CardPlacementSystem Instance { get; private set; }
+    
     [Header("���� ��������� ����")]
     [SerializeField] public GameObject playboard;
     [SerializeField] public GameObject hand;
@@ -16,8 +18,24 @@ public class CardPlacementSystem : MonoBehaviour
     [SerializeField] private int maxHandCapacity;//�������� ���� � ����
     [SerializeField] private int maxPlayboardCapacity; //�������� ���� �� ������� ����
     [SerializeField] private int cardTakeAmount;//���������� ���� ���������� � ������ ������� ����
-    private CardDeck playboardDeck;
-    private CardDeck handDeck;
+    public CardDeck playboardDeck;
+    public CardDeck handDeck;
+
+    public EnemyPreset enemyPreset;
+
+    public GameObject turnBlocker;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -37,6 +55,7 @@ public class CardPlacementSystem : MonoBehaviour
 
     public void EndTurn()
     {
+        turnBlocker.SetActive(true);
         int count = playboardDeck.cardsInDeck.Count;
         for(int i = 0; i < count; i++)
         {
@@ -51,13 +70,14 @@ public class CardPlacementSystem : MonoBehaviour
             print("Remove this");
             playboard.transform.GetChild(0).transform.SetParent(deck.transform);
         }
-        
-        StartTurn();
+
+        StartCoroutine(enemyPreset.TakeTurn());
     }
 
     public void StartTurn()
     {
         GiveCardsToPlayer(cardTakeAmount);
+        turnBlocker.SetActive(false);
     }
     
     public void GiveCardsToPlayer(int count)
