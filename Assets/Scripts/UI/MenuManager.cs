@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
 	[Header("Screens")]
 	[SerializeField] private GameObject pauseScreen;
 	[SerializeField] private GameObject settingsScreen;
-	[Header("Audio")]
+	[Header("Audio")]	
 	[SerializeField] private AudioMixer audioMixer;
 	[SerializeField] private List<AudioParams> audioParameters;
 
