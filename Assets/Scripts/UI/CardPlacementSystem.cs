@@ -24,6 +24,8 @@ public class CardPlacementSystem : MonoBehaviour
 
     public EnemyPreset enemyPreset;
 
+    public Shop shop;
+
     public GameObject turnBlocker;
 
     private void Awake()

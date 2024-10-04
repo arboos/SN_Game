@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1774450022247767726
+--- !u!1 &4997787082985250935
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8192287223878657718}
-  - component: {fileID: 5556694025760409253}
-  - component: {fileID: 7923285748441601782}
-  - component: {fileID: 1063420637289242940}
-  - component: {fileID: 1718803109314453127}
-  - component: {fileID: -9117515933255262109}
+  - component: {fileID: 1285698000567209335}
+  - component: {fileID: 2042589564494506759}
+  - component: {fileID: 3015898473462528343}
+  - component: {fileID: 2054343178121247736}
+  - component: {fileID: 8040456618209215539}
+  - component: {fileID: -8144673194526552283}
   m_Layer: 5
-  m_Name: Card (5)
+  m_Name: Card (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &8192287223878657718
+--- !u!224 &1285698000567209335
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774450022247767726}
+  m_GameObject: {fileID: 4997787082985250935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,28 +40,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &5556694025760409253
+--- !u!222 &2042589564494506759
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774450022247767726}
+  m_GameObject: {fileID: 4997787082985250935}
   m_CullTransparentMesh: 1
---- !u!114 &7923285748441601782
+--- !u!114 &3015898473462528343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774450022247767726}
+  m_GameObject: {fileID: 4997787082985250935}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3962264, g: 0.3909932, b: 0.3909932, a: 1}
+  m_Color: {r: 0, g: 1, b: 0.16816235, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -78,29 +78,29 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1063420637289242940
+--- !u!114 &2054343178121247736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774450022247767726}
+  m_GameObject: {fileID: 4997787082985250935}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4fa47f3d276286c429c441a01b2de618, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Name: 5
+  Name: 8
   Damage: 0
-  DamageResistance: 7
-  Heal: 0
---- !u!114 &1718803109314453127
+  DamageResistance: 11
+  Heal: 20
+--- !u!114 &8040456618209215539
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774450022247767726}
+  m_GameObject: {fileID: 4997787082985250935}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d757acb4b9529f4c805ea2abf9f449e, type: 3}
@@ -111,13 +111,13 @@ MonoBehaviour:
   isPickedUp: 0
   currentContainer: {fileID: 0}
   followMouseSpeed: 10
---- !u!114 &-9117515933255262109
+--- !u!114 &-8144673194526552283
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1774450022247767726}
+  m_GameObject: {fileID: 4997787082985250935}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9466b633eab2a9b4d8f3e34f4e2874c2, type: 3}

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -53,7 +54,7 @@ public class EnemyPreset : MonoBehaviour
 
     private void Die()
     {
-        //handle death
+	    CardPlacementSystem.Instance.shop.gameObject.SetActive(true);
     }
     
     public IEnumerator TakeTurn()
@@ -81,15 +82,15 @@ public class EnemyPreset : MonoBehaviour
 			heal += card.Heal;
 			if (damage > 0)
             {
-                outputField.text += "Урон противнику: " + damage.ToString() + "\n";
+                outputField.text += "пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + damage.ToString() + "\n";
             }
             if (damageResistance != 1)
             {
-                outputField.text += "Снижение получаемого урона: " + ((damageResistance) * 100).ToString() + "%\n";
+                outputField.text += "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ: " + ((damageResistance) * 100).ToString() + "%\n";
             }
             if (heal > 0)
             {
-                outputField.text += "Лечение: " + heal.ToString();
+                outputField.text += "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + heal.ToString();
             }
 			yield return new WaitForSeconds(2f);
         }
