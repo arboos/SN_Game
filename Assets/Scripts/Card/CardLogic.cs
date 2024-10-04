@@ -17,7 +17,7 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	private void Awake()
 	{
 		placementSystem = CardPlacementSystem.Instance;
-		turnManager = GameObject.Find("");
+		turnManager = GameObject.Find("CardManager").GetComponent<TurnManager>();
 		currentParent = placementSystem.hand.transform;
 	}
 
@@ -52,6 +52,7 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 		currentContainer.RemoveCard(gameObject);
 		currentContainer = currentParent.GetComponent<CardDeck>();
 		isPickedUp = false;
+		turnManager.PreCompilate();
 		GetComponent<Image>().raycastTarget = true;
 	}
 

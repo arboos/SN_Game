@@ -2,13 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyPreset : MonoBehaviour
 {
     public int currentTurnIndex;
     public List<Turn> presets;
-
     public List<GameObject> playedCards;
+    [SerializeField] private PlayerProperties player;
+
+    public int HP;
+    public int MaxHP;
+    public float DamageResistance;
+
+    [SerializeField] private Image HPBar;
+
     
     [Serializable]
     public struct Turn
@@ -17,9 +25,38 @@ public class EnemyPreset : MonoBehaviour
 
         public int damage;
         public int heal;
+        public float damageResistance;
     }
     
+    public void TakeDamage(int damage)
+    {
+        if (HP - (int)(damage * DamageResistance) <= 0)
+        {
+            HP = 0;
+            UpdateViewModels();
+            Die();
+            return;
+        }
+		if (DamageResistance != 0)
+		{
+			HP -= (int)(damage * DamageResistance);
+		}
+		else
+		{
+			HP -= damage;
+		}
+		UpdateViewModels();
+    }
 
+    private void UpdateViewModels()
+    {
+        HPBar.fillAmount = HP / (float)MaxHP;
+    }
+
+    private void Die()
+    {
+        //handle death
+    }
     
     public IEnumerator TakeTurn()
     {
@@ -36,8 +73,10 @@ public class EnemyPreset : MonoBehaviour
         
         print("Take Damage: " + turn.damage);
         print("Take Heal: " + turn.heal);
-
-        currentTurnIndex++;
+		print("DamageResistance: " + turn.heal);
+        player.TakeDamage(turn.damage);
+        DamageResistance = turn.damageResistance;
+		currentTurnIndex++;
 
         int count = CardPlacementSystem.Instance.playboard.transform.childCount;
         for (int j = 0; j < count; j++)
