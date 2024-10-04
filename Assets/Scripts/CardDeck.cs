@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,7 +16,7 @@ public class CardDeck : MonoBehaviour
 
 
     /// <summary>
-    /// Возвращает карту и удаляет ее из короды
+    /// Возвращает СЛУЧАЙНУЮ карту и удаляет ее из короды
     /// </summary>
     public GameObject TakeRandomCard()
     {
@@ -26,7 +27,40 @@ public class CardDeck : MonoBehaviour
 
         return cardToReturn;
     }
+
+    /// <summary>
+    /// Возвращает ВЕРХНЮЮ карту из колоды
+    /// </summary>
+    /// <returns></returns>
+    public GameObject TakeUpperCard()
+    {
+        if (cardsInDeck.Count == 0)
+        {
+            print("Not more cards to take from this deck : " + gameObject.name);
+            return null;
+        }
+        GameObject cardToReturn = cardsInDeck[0];
+
+        cardsInDeck.Remove(cardToReturn);
+
+        return cardToReturn;
+    }
     
+    /// <summary>
+    /// Кладет карту ВНИЗ колоды
+    /// </summary>
+    /// <returns></returns>
+    public void AddCardToDeck(GameObject card)
+    {
+        if (card == null)
+        {
+            print("GameObject card is null");
+            return;
+        }
+        cardsInDeck.Add(card);
+    }
+    
+
     /// <summary>
     /// Перетасовывает колоду
     /// </summary>
@@ -42,7 +76,6 @@ public class CardDeck : MonoBehaviour
             cardsInDeck.Remove(card);
             shuffledDeck.Add(card);
         }
-
         cardsInDeck = shuffledDeck;
     }
     

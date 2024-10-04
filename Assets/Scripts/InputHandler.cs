@@ -14,7 +14,12 @@ public class InputHandler : MonoBehaviour
         
         else if (Input.GetKeyDown(KeyCode.E))
         {
-            CardManager.Instance.playerHandDeck.cardsInDeck.Add(CardManager.Instance.playerDeck.TakeRandomCard());
+            CardManager.Instance.playerHandDeck.AddCardToDeck(CardManager.Instance.playerDeck.TakeUpperCard());
+        }
+        
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            CardManager.Instance.playerDeck.AddCardToDeck(CardManager.Instance.playerHandDeck.TakeUpperCard());
         }
     }
 }
