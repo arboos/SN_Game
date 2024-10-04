@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.14716971, g: 0.14716971, b: 0.14716971, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -105,4 +105,4 @@ MonoBehaviour:
   currentParent: {fileID: 0}
   placementSystem: {fileID: 0}
   isPickedUp: 0
-  followMouseSpeed: 0
+  followMouseSpeed: 10

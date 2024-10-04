@@ -105,4 +105,4 @@ MonoBehaviour:
   currentParent: {fileID: 0}
   placementSystem: {fileID: 0}
   isPickedUp: 0
-  followMouseSpeed: 0
+  followMouseSpeed: 10

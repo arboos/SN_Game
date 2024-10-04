@@ -32,7 +32,7 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 		{
 			if (eventData.pointerCurrentRaycast.gameObject.name == "Playboard")
 			{
-				currentParent = placementSystem.playdeck.transform;
+				currentParent = placementSystem.playboard.transform;
 			}
 			else if (eventData.pointerCurrentRaycast.gameObject.name == "Hand")
 			{
@@ -65,9 +65,9 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	{
 		Vector2 placeCords = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		Debug.Log(placeCords);
-		if (placementSystem.playdeck.GetComponent<RectTransform>().rect.Contains(placeCords))
+		if (placementSystem.playboard.GetComponent<RectTransform>().rect.Contains(placeCords))
 		{
-			currentParent = placementSystem.playdeck.transform;
+			currentParent = placementSystem.playboard.transform;
 		}
 		else if (placementSystem.hand.GetComponent<RectTransform>().rect.Contains(placeCords))
 		{

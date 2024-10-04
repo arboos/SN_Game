@@ -24,7 +24,6 @@ public class CardDeck : MonoBehaviour
         GameObject cardToReturn = cardsInDeck[Random.Range(0, cardsInDeck.Count)];
 
         cardsInDeck.Remove(cardToReturn);
-
         return cardToReturn;
     }
 
