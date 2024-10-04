@@ -9,14 +9,15 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	[SerializeField] private Transform currentParent;
 	[SerializeField] private CardPlacementSystem placementSystem;
 	[SerializeField] private bool isPickedUp = false;
-
+	private TurnManager turnManager;
 	public CardDeck currentContainer;
 	
 	[SerializeField] private float followMouseSpeed;
 
 	private void Awake()
 	{
-		placementSystem = GameObject.Find("Canvas").GetComponent<CardPlacementSystem>();
+		placementSystem = CardPlacementSystem.Instance;
+		turnManager = GameObject.Find("");
 		currentParent = placementSystem.hand.transform;
 	}
 
