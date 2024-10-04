@@ -92,7 +92,7 @@ MonoBehaviour:
   Name: 8
   Damage: 0
   DamageResistance: 11
-  Heal: 0
+  Heal: 20
 --- !u!114 &8040456618209215539
 MonoBehaviour:
   m_ObjectHideFlags: 0

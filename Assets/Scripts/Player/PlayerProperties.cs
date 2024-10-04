@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerProperties : MonoBehaviour
 {
+    public static PlayerProperties Instance { get; private set; }
     [Header("Характеристики")]
     public int HP;
     public int maxHP;
@@ -13,8 +14,20 @@ public class PlayerProperties : MonoBehaviour
     public int fame;
     [Header("UI/UX")]
     [SerializeField] private Image hpBar;
- 
-    public void TakeDamage(int damage)
+
+	private void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
+
+	public void TakeDamage(int damage)
     {
         if (HP - (int)(damage * damageResistance) <= 0)
         {

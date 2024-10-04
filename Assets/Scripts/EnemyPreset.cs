@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,16 +17,13 @@ public class EnemyPreset : MonoBehaviour
     public float DamageResistance;
 
     [SerializeField] private Image HPBar;
+    public TextMeshProUGUI outputField;
+	[SerializeField] private GameObject nextTurn;
 
-    
-    [Serializable]
+	[Serializable]
     public struct Turn
     {
         public GameObject[] cards;
-
-        public int damage;
-        public int heal;
-        public float damageResistance;
     }
     
     public void TakeDamage(int damage)
@@ -60,22 +58,44 @@ public class EnemyPreset : MonoBehaviour
     
     public IEnumerator TakeTurn()
     {
+        
         if (currentTurnIndex >= presets.Count) currentTurnIndex = 0;
         
         Turn turn = presets[currentTurnIndex];
 
+        int damage = 0;
+        float damageResistance = 1;
+        float heal = 0;
+
         yield return new WaitForSeconds(1f);
-        foreach (var card in turn.cards)
+        foreach (var cardObject in turn.cards)
         {
-            playedCards.Add(Instantiate(card.gameObject, CardPlacementSystem.Instance.playboard.transform));
-            yield return new WaitForSeconds(1f);
+            playedCards.Add(Instantiate(cardObject, CardPlacementSystem.Instance.playboard.transform));
+			outputField.text = "Enemy:\n";
+			CardInfo card = cardObject.GetComponent<CardInfo>();
+			damage += card.Damage;
+			if (card.DamageResistance != 0)
+			{
+				damageResistance *= (card.DamageResistance / 100f);
+			}
+			heal += card.Heal;
+			if (damage > 0)
+            {
+                outputField.text += "Урон противнику: " + damage.ToString() + "\n";
+            }
+            if (damageResistance != 1)
+            {
+                outputField.text += "Снижение получаемого урона: " + ((damageResistance) * 100).ToString() + "%\n";
+            }
+            if (heal > 0)
+            {
+                outputField.text += "Лечение: " + heal.ToString();
+            }
+			yield return new WaitForSeconds(2f);
         }
-        
-        print("Take Damage: " + turn.damage);
-        print("Take Heal: " + turn.heal);
-		print("DamageResistance: " + turn.heal);
-        player.TakeDamage(turn.damage);
-        DamageResistance = turn.damageResistance;
+
+        player.TakeDamage(damage);
+        DamageResistance = 1 - damageResistance;
 		currentTurnIndex++;
 
         int count = CardPlacementSystem.Instance.playboard.transform.childCount;
@@ -83,8 +103,7 @@ public class EnemyPreset : MonoBehaviour
         {
             Destroy(CardPlacementSystem.Instance.playboard.transform.GetChild(j).gameObject);
         }
-        
-        CardPlacementSystem.Instance.StartTurn();
+        nextTurn.SetActive(true);
     }
     
 }

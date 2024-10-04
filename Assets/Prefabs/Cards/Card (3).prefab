@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 3
   Damage: 0
-  DamageResistance: 15
+  DamageResistance: 10
   Heal: 0
 --- !u!114 &2756801626251943299
 MonoBehaviour:

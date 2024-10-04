@@ -76,6 +76,7 @@ public class CardPlacementSystem : MonoBehaviour
 
     public void StartTurn()
     {
+        enemyPreset.outputField.text = "";
         GiveCardsToPlayer(cardTakeAmount);
         turnBlocker.SetActive(false);
     }
