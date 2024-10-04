@@ -7,10 +7,15 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+	public static MenuManager Instance { get; private set; }
+
 	[Header("Screens")]
 	[SerializeField] private GameObject pauseScreen;
 	[SerializeField] private GameObject settingsScreen;
-	[Header("Audio")]	
+	public GameObject winScreen;
+	public GameObject looseScreen;
+	public GameObject endgameScreen;
+	[Header("Audio")]
 	[SerializeField] private AudioMixer audioMixer;
 	[SerializeField] private List<AudioParams> audioParameters;
 
@@ -19,6 +24,18 @@ public class MenuManager : MonoBehaviour
 	{
 		public string groupName;
 		public Slider slider;
+	}
+
+	private void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
 	}
 
 	public void Quit()
@@ -58,6 +75,11 @@ public class MenuManager : MonoBehaviour
 			return;
 		}
 		settingsScreen.SetActive(true);
+	}
+
+	public void RestartScene(int index)
+	{
+		SceneManager.LoadScene(index);
 	}
 
 	public void ChangeAudioVolume(int index)

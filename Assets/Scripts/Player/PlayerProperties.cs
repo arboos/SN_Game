@@ -63,6 +63,6 @@ public class PlayerProperties : MonoBehaviour
 
     private void Die()
     {
-        //Обработка смерти
+        MenuManager.Instance.looseScreen.SetActive(true);
     }
 }
