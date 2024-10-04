@@ -28,6 +28,12 @@ public class CardDeck : MonoBehaviour
         return cardToReturn;
     }
 
+    public void RemoveCard(GameObject card)
+    {
+        if (card == null) return;
+        cardsInDeck.Remove(card);
+    }
+
     /// <summary>
     /// Возвращает ВЕРХНЮЮ карту из колоды
     /// </summary>
@@ -58,7 +64,7 @@ public class CardDeck : MonoBehaviour
             return;
         }
 
-        if (cardsInDeck.Count >= deckCapacity)
+        if (deckCapacity > 0 && cardsInDeck.Count >= deckCapacity)
         {
             print("Max deck capacity in : " + gameObject.name);
             return;

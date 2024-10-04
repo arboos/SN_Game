@@ -10,12 +10,14 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	[SerializeField] private CardPlacementSystem placementSystem;
 	[SerializeField] private bool isPickedUp = false;
 
+	public CardDeck currentContainer;
+	
 	[SerializeField] private float followMouseSpeed;
 
 	private void Awake()
 	{
 		placementSystem = GameObject.Find("Canvas").GetComponent<CardPlacementSystem>();
-		currentParent = transform.parent;
+		currentParent = placementSystem.hand.transform;
 	}
 
 	public void OnPointerDown(PointerEventData eventData)
@@ -38,8 +40,16 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 			{
 				currentParent = placementSystem.hand.transform;
 			}
+			else
+			{
+				currentParent = placementSystem.hand.transform;
+			}
 		}
 		transform.SetParent(currentParent, false);
+		
+		currentParent.GetComponent<CardDeck>().AddCardToDeck(gameObject);
+		currentContainer.RemoveCard(gameObject);
+		currentContainer = currentParent.GetComponent<CardDeck>();
 		isPickedUp = false;
 		GetComponent<Image>().raycastTarget = true;
 	}
@@ -55,29 +65,8 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 		{
 			Follow();
 		}
-		if (Input.GetMouseButtonUp(0) && isPickedUp)
-		{
-			//Place();
-		}
 	}
-
-	private void Place()
-	{
-		Vector2 placeCords = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		Debug.Log(placeCords);
-		if (placementSystem.playboard.GetComponent<RectTransform>().rect.Contains(placeCords))
-		{
-			currentParent = placementSystem.playboard.transform;
-		}
-		else if (placementSystem.hand.GetComponent<RectTransform>().rect.Contains(placeCords))
-		{
-			currentParent = placementSystem.hand.transform;
-		}
-		transform.SetParent(currentParent, false);
-		isPickedUp = false;
-
-	}
-
+	
 	private void Follow()
 	{
 		transform.position = Vector2.Lerp(transform.position, Input.mousePosition, Time.deltaTime * followMouseSpeed);

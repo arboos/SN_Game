@@ -5,9 +5,4 @@ using UnityEngine;
 public class CardInfo : MonoBehaviour
 {
     public string Name;
-
-    void Ad()
-    {
-        
-    }
 }
