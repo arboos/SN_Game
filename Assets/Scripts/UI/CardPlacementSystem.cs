@@ -18,6 +18,7 @@ public class CardPlacementSystem : MonoBehaviour
     [SerializeField] private int maxHandCapacity;//�������� ���� � ����
     [SerializeField] private int maxPlayboardCapacity; //�������� ���� �� ������� ����
     [SerializeField] private int cardTakeAmount;//���������� ���� ���������� � ������ ������� ����
+    [SerializeField] private TurnManager turnManager;
     public CardDeck playboardDeck;
     public CardDeck handDeck;
 
@@ -55,7 +56,7 @@ public class CardPlacementSystem : MonoBehaviour
 
     public void EndTurn()
     {
-        turnBlocker.SetActive(true);
+		turnBlocker.SetActive(true);
         int count = playboardDeck.cardsInDeck.Count;
         for(int i = 0; i < count; i++)
         {
@@ -70,9 +71,8 @@ public class CardPlacementSystem : MonoBehaviour
             print("Remove this");
             playboard.transform.GetChild(0).transform.SetParent(deck.transform);
         }
-
-        StartCoroutine(enemyPreset.TakeTurn());
-    }
+		StartCoroutine(enemyPreset.TakeTurn());
+	}
 
     public void StartTurn()
     {
