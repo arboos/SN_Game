@@ -68,7 +68,6 @@ public class EnemyPreset : MonoBehaviour
 		MenuManager.Instance.winScreen.SetActive(true);
 		StopAllCoroutines();
 		transform.parent.gameObject.SetActive(false);
-
 	}
 
 	public IEnumerator TakeTurn()
