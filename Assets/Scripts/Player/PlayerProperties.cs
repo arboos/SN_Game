@@ -56,7 +56,8 @@ public class PlayerProperties : MonoBehaviour
 
     public void Heal(int heal)
     {
-        fame = Mathf.Clamp(fame + heal,0,maxHP);
+        //fame = Mathf.Clamp(fame + heal,0,maxHP);
+        fame = fame + heal;
         UpdateViewModels();
     }
 

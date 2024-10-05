@@ -50,7 +50,9 @@ public class TurnManager : MonoBehaviour
 		int Damage = 0;
 		int DamageBuff = 0;
 		float DamageResistance = 0;
+		float DamageResistanceBuff = 0;
 		int Heal = 0;
+		int HealBuff = 0;
 		foreach (GameObject cardObject in cards)
 		{
 
@@ -61,6 +63,8 @@ public class TurnManager : MonoBehaviour
 				if (CheckCombination(cards.IndexOf(cardObject)))
 				{
 					DamageBuff += card.Damage;
+					DamageResistanceBuff += card.DamageResistance;
+					HealBuff += card.Heal;
 				}
 				continue;
 			}
@@ -72,8 +76,8 @@ public class TurnManager : MonoBehaviour
 			Heal += card.Heal;
 			yield return new WaitForSeconds(compilationSpeed);
 		}
-		player.SetResistance(DamageResistance);
-		player.Heal(Heal);
+		player.SetResistance(DamageResistance + DamageResistanceBuff);
+		player.Heal(Heal + HealBuff);
 		enemy.TakeDamage(Damage + DamageBuff);
 		yield return new WaitForSeconds(compilationSpeed);
 		CardPlacementSystem.Instance.EndTurn();
