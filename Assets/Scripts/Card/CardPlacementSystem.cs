@@ -63,6 +63,8 @@ public class CardPlacementSystem : MonoBehaviour
 
     public GameObject turnBlocker;
 
+    public GameObject endTurnGO;
+
     private void Awake()
     {
         if (Instance == null)
@@ -131,7 +133,7 @@ public class CardPlacementSystem : MonoBehaviour
         await move.ToUniTask();
     }
 
-    public void EndTurn()
+    public async void EndTurn()
     {
 		turnBlocker.SetActive(true);
         int count = playboardDeck.cardsInDeck.Count;
@@ -145,9 +147,14 @@ public class CardPlacementSystem : MonoBehaviour
         
         for (int j = 0; j < count; j++)
         {
-            print("Remove this");
+            //print("Remove this");
+            await MoveCard(playboard.transform.GetChild(0).gameObject, deckTransform.position);
             playboard.transform.GetChild(0).transform.SetParent(deck.transform);
         }
+
+        await UniTask.Delay(TimeSpan.FromSeconds(1f));
+        
+        endTurnGO.SetActive(false);
 		StartCoroutine(enemyPreset.TakeTurn());
 	}
 
