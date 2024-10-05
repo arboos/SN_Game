@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.55
+  m_fontSize: 20.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1526,7 +1526,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20.8
+  m_fontSize: 20.95
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4951,7 +4951,7 @@ MonoBehaviour:
   allCards:
   - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
   - {fileID: 5949480487649978953, guid: 17956a5759dddc148946b248f1a0a641, type: 3}
-  - {fileID: 5949480487649978953, guid: aa98757ebcaeb2141ae8fce45244e4bd, type: 3}
+  - {fileID: 5949480487649978953, guid: 4c516b395da9d1246b2d993e68d11060, type: 3}
   - {fileID: 5949480487649978953, guid: 1954a10eb57f96a489c03f23130d868d, type: 3}
   - {fileID: 5949480487649978953, guid: d5e08edc24847e040bdd034fe2cca138, type: 3}
   - {fileID: 5949480487649978953, guid: 2723735e47c16ee4c9a40d137ce445a3, type: 3}
@@ -5755,7 +5755,7 @@ MonoBehaviour:
   canvas: {fileID: 2049008279}
   maxHandCapacity: 8
   maxPlayboardCapacity: 8
-  cardTakeAmount: 1
+  cardTakeAmount: 2
   cardTakeStart: 5
   turnManager: {fileID: 1110352147}
   playerPhrases:
@@ -6357,12 +6357,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   items:
-  - {fileID: 4997787082985250935, guid: 20851985bee631b4a963acb4a91fee04, type: 3}
-  - {fileID: 4997787082985250935, guid: f2ef42244c2f26c4cbfc03a83b39ab30, type: 3}
-  - {fileID: 4997787082985250935, guid: bb937f24940458d468dad6cc74d89838, type: 3}
-  - {fileID: 4997787082985250935, guid: 0568e3aaa402f6b4793af621af1f5831, type: 3}
-  - {fileID: 4997787082985250935, guid: b1098cac0fb043642a0e8ddba8fd82f0, type: 3}
-  - {fileID: 4997787082985250935, guid: 2f8a60442dc92eb469837ba2e5b2d933, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   itemsInShop: []
   itemsCount: 4
   cardsPool: {fileID: 5371784926956379979}
