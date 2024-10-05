@@ -112,10 +112,7 @@ public class CardPlacementSystem : MonoBehaviour
             movePos = hand.transform.position;
         }
         
-        
-        print(hand.GetComponent<GridLayoutGroup>().cellSize.x);
-        print(hand.GetComponent<GridLayoutGroup>().spacing.x);
-        print(xPos + "Xpos");
+        print(movePos);
         
         await MoveCard(card, movePos);
         
