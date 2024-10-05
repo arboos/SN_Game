@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-	public PlayerProperties player;
+	//public PlayerProperties player;
 	[SerializeField] private EnemyPreset enemy;
 	[SerializeField] private CardDeck cardsField;
 	[SerializeField] private TextMeshProUGUI outputField;
@@ -86,10 +86,12 @@ public class TurnManager : MonoBehaviour
 				if (combination == "+damage")
 				{
 					DamageBuff += card.Damage;
+					PlayerProperties.Instance.honestReaction.PlayHappy();
 				}
 				else if (combination == "heal")
 				{
 					Heal += card.Heal;
+					PlayerProperties.Instance.honestReaction.PlayHappy();
 				}
 				else if (combination == "-defence")
 				{
