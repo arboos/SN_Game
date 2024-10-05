@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HonestReactions : MonoBehaviour
 {
@@ -13,8 +15,7 @@ public class HonestReactions : MonoBehaviour
     {
         animator.SetTrigger("Neutral");
     }
-
-    public void PlayAngry()
+	public void PlayAngry()
     {
         animator.SetTrigger("Angry");
     }
