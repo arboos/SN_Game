@@ -40,8 +40,12 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 		{
 			if (eventData.pointerCurrentRaycast.gameObject.name == "Playboard")
 			{
-				currentParent = placementSystem.playboard.transform;
-				namefield.gameObject.SetActive(true);
+				if (placementSystem.playboard.GetComponent<CardDeck>().deckCapacity >
+					placementSystem.playboard.GetComponent<CardDeck>().cardsInDeck.Count)
+				{
+					currentParent = placementSystem.playboard.transform;
+					namefield.gameObject.SetActive(true);
+				}
 			}
 			else if (eventData.pointerCurrentRaycast.gameObject.name == "Hand")
 			{
