@@ -103,7 +103,7 @@ public class EnemyPreset : MonoBehaviour
 		foreach (var cardObject in turn.cards)
 		{
 			playedCards.Add(Instantiate(cardObject, CardPlacementSystem.Instance.playboard.transform));
-			outputField.text = "Enemy:\n";
+			outputField.text = "Враг:\n";
 			CardInfo card = cardObject.GetComponent<CardInfo>();
 			damage += card.Damage;
 			if (card.DamageResistance != 0)
@@ -114,18 +114,18 @@ public class EnemyPreset : MonoBehaviour
 			heal += card.Heal;
 			if (damage > 0)
 			{
-				outputField.text += "Damage: " + damage.ToString() + "\n";
+				outputField.text += "Урон: " + damage.ToString() + "\n";
 				honestReaction.PlayHappy();
 			}
 			honestReaction.PlayNeutral();
 			if (damageResistance != 1)
 			{
-				outputField.text += "Damage resistance: " + (damageResistance).ToString() + "\n";
+				outputField.text += "Защита: " + (damageResistance).ToString() + "\n";
 			}
 			honestReaction.PlayNeutral();
 			if (heal > 0)
 			{
-				outputField.text += "Healing: " + heal.ToString();
+				outputField.text += "Лечение: " + heal.ToString();
 				honestReaction.PlayHappy();
 			}
 			honestReaction.PlayNeutral();
