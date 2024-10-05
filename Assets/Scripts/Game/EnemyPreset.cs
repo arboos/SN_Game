@@ -13,7 +13,6 @@ public class EnemyPreset : MonoBehaviour
 	public int currentTurnIndex;
 	public List<Turn> presets;
 	public List<GameObject> playedCards;
-	//[SerializeField] private PlayerProperties player;
 
 	public int HP;
 	public int MaxHP;
@@ -79,7 +78,6 @@ public class EnemyPreset : MonoBehaviour
 
 	public void UpdateViewModels()
 	{
-		//HPBar.fillAmount = HP / (float)MaxHP;
 		CardPlacementSystem.Instance.textHP_Enemy.text = "Слава: "+ HP.ToString() +"\nЗащита: "+DamageResistance;
 	}
 
@@ -161,7 +159,6 @@ public class EnemyPreset : MonoBehaviour
 				damageResistance += card.DamageResistance;
 			}
 			honestReaction.PlayNeutral();
-			//heal += card.Heal;
 			if (damage > 0)
 			{
 				outputField.text += "Урон: " + damage.ToString() + "\n";
