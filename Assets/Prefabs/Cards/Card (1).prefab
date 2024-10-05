@@ -90,9 +90,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 1
-  Damage: 300
+  Damage: 10
   DamageResistance: 0
   Heal: 0
+  Price: 0
+  CardType: 1
 --- !u!114 &-1971009377166478047
 MonoBehaviour:
   m_ObjectHideFlags: 0

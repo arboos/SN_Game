@@ -93,6 +93,8 @@ MonoBehaviour:
   Damage: 0
   DamageResistance: 0
   Heal: 20
+  Price: 0
+  CardType: 4
 --- !u!114 &-8344317743881553008
 MonoBehaviour:
   m_ObjectHideFlags: 0
