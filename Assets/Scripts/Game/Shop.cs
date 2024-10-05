@@ -12,13 +12,14 @@ public class Shop : MonoBehaviour
     public int itemsCount;
     
     public Transform cardsPool;
-
+    public TextMeshProUGUI fameValue;
     public GameObject buttonPrefab;
     
 
 
     public void Open()
     {
+        fameValue.text = "Ваша слава: "+PlayerProperties.Instance.fame;
         for (int i = 0; i < itemsCount; i++)
         {
             var item = CardManager.Instance.lockedCards[Random.Range(0, CardManager.Instance.lockedCards.Count)];
