@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardPlacementSystem : MonoBehaviour
 {
@@ -29,6 +32,8 @@ public class CardPlacementSystem : MonoBehaviour
     
     [SerializeField] private CharacterDialog enemyDialog;
     [SerializeField] private float timeToWaitEnemy;
+
+    [SerializeField] private Transform deckTransform;
     
     
     public TextMeshProUGUI textHP_Player;
@@ -63,36 +68,56 @@ public class CardPlacementSystem : MonoBehaviour
         playboardDeck = playboard.GetComponent<CardDeck>();
         handDeck = hand.GetComponent<CardDeck>();
 
-        StartCoroutine(StartGame());
+        StartGame();
     }
 
-    public IEnumerator StartGame()
+    public async void StartGame()
     {
         playerDialog.StartText(playerPhrases);
-        yield return new WaitForSeconds(timeToWaitPlayer);
+        await UniTask.Delay(TimeSpan.FromSeconds(timeToWaitPlayer));
         
         enemyDialog.StartText(enemyPhrases);
-        yield return new WaitForSeconds(timeToWaitEnemy);
-        
-        turnBlocker.SetActive(false);
+        await UniTask.Delay(TimeSpan.FromSeconds(timeToWaitEnemy));
 
         for (int i = 0; i < cardTakeStart; i++)
         {
-            TakeCard();
+            await TakeCard();
         }
 
         textHP_Player.text = PlayerProperties.Instance.fame.ToString();
+        turnBlocker.SetActive(false);
     }
     
     
-    public void TakeCard()
+    public async UniTask TakeCard()
     {
         GameObject cardPrefab = deck.TakeUpperCard();
         if(cardPrefab == null) return;
 		GameObject card = Instantiate(cardPrefab,canvas.transform);
+        card.transform.position = deckTransform.position;
+
+        // float xPos = ((handDeck.cardsInDeck.Count+1.5f) / 2f) *
+        //     (hand.GetComponent<GridLayoutGroup>().cellSize.x + hand.GetComponent<GridLayoutGroup>().spacing.x);
+
+        float xPos = 115f;
+        
+        Vector3 movePos = hand.transform.position + new Vector3(handDeck.cardsInDeck.Count * xPos, 0, 0);
+        
+        print(hand.GetComponent<GridLayoutGroup>().cellSize.x);
+        print(hand.GetComponent<GridLayoutGroup>().spacing.x);
+        print(xPos + "Xpos");
+        
+        await MoveCard(card, movePos);
+        
         card.transform.SetParent(hand.transform,false);
         handDeck.AddCardToDeck(card);
         card.GetComponent<CardLogic>().currentContainer = handDeck;
+    }
+
+    public async UniTask MoveCard(GameObject card,  Vector3 destination)
+    {
+        Tween move = card.transform.DOMove(destination, 0.5f);
+        await move.ToUniTask();
     }
 
     public void EndTurn()
