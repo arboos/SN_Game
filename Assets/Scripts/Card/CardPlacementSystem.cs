@@ -64,6 +64,7 @@ public class CardPlacementSystem : MonoBehaviour
     public GameObject turnBlocker;
 
     public GameObject endTurnGO;
+    public GameObject nextTurnGO;
 
     private void Awake()
     {
