@@ -2701,7 +2701,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.59866685, y: 1}
   m_AnchorMax: {x: 0.59866685, y: 1}
-  m_AnchoredPosition: {x: 171.5, y: -27}
+  m_AnchoredPosition: {x: 447, y: -480}
   m_SizeDelta: {x: 266.75, y: 54.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &861394483
@@ -4989,7 +4989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: {fileID: 176707921}
   dialogPanel: {fileID: 819370455}
-  alignmentLeft: 1
+  alignmentLeft: 0
 --- !u!114 &1701917009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6522,7 +6522,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.143, y: 0}
   m_AnchorMax: {x: 0.143, y: 0}
-  m_AnchoredPosition: {x: 170.70001, y: 26.315063}
+  m_AnchoredPosition: {x: 26, y: 453}
   m_SizeDelta: {x: 292.44, y: 54.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &726296737456905781

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -23,6 +25,7 @@ public class PlayerProperties : MonoBehaviour
 	public AudioClip damaged;
 	public AudioClip healed;
 	public AudioClip shopMusic;
+	
 
 	private void Awake()
 	{
@@ -97,8 +100,16 @@ public class PlayerProperties : MonoBehaviour
 		CardPlacementSystem.Instance.textHP_Player.text = "Слава: " + fame.ToString() +"\nЗащита: " + damageResistance;
 	}
 
-	private void Die()
+	private async void Die()
 	{
+		CardPlacementSystem.Instance.playerDialog.StartText(CardPlacementSystem.Instance.playerPhrasesLose);
+
+		await UniTask.Delay(TimeSpan.FromSeconds(CardPlacementSystem.Instance.playerPhrasesLose[0].Length * 0.1f + 1f));
+		
+		CardPlacementSystem.Instance.playerDialog.StartText(CardPlacementSystem.Instance.playerPhrasesLose);
+
+		await UniTask.Delay(TimeSpan.FromSeconds(CardPlacementSystem.Instance.playerPhrasesLose[0].Length * 0.1f + 1f));
+		
 		audioSource.PlayOneShot(defeat);
 		MenuManager.Instance.looseScreen.SetActive(true);
 	}

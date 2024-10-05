@@ -24,14 +24,23 @@ public class CardPlacementSystem : MonoBehaviour
     [SerializeField] private int cardTakeStart;//���������� ���� ���������� � ������ ������� ����
     [SerializeField] private TurnManager turnManager;
 
+    [Header("Start phrases")]
     [SerializeField] private List<string> playerPhrases;
     [SerializeField] private List<string> enemyPhrases;
+    
+    
+    [Header("Lose phrases")]
+    public List<string> playerPhrasesLose;
+    public float timeToWaitPlayerLose;
+    public List<string> enemyPhrasesLose;
+    public float timeToWaitEnemyLose;
+    
 
     public CharacterDialog playerDialog;
-    [SerializeField] private float timeToWaitPlayer;
+    
     
     public CharacterDialog enemyDialog;
-    [SerializeField] private float timeToWaitEnemy;
+    
 
     [SerializeField] private Transform deckTransform;
     
@@ -74,10 +83,10 @@ public class CardPlacementSystem : MonoBehaviour
     public async void StartGame()
     {
         playerDialog.StartText(playerPhrases);
-        await UniTask.Delay(TimeSpan.FromSeconds(timeToWaitPlayer));
+        await UniTask.Delay(TimeSpan.FromSeconds(playerPhrases[0].Length * 0.1f + 1f));
         
         enemyDialog.StartText(enemyPhrases);
-        await UniTask.Delay(TimeSpan.FromSeconds(timeToWaitEnemy));
+        await UniTask.Delay(TimeSpan.FromSeconds(enemyPhrases[0].Length * 0.1f + 1f));
 
         playerDialog.gameObject.SetActive(false);
         enemyDialog.gameObject.SetActive(false);
@@ -146,11 +155,11 @@ public class CardPlacementSystem : MonoBehaviour
         turnBlocker.SetActive(false);
     }
     
-    public void GiveCardsToPlayer(int count)
+    public async void GiveCardsToPlayer(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            TakeCard();
+            await TakeCard();
         }
     }
 }
