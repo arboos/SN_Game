@@ -84,7 +84,6 @@ public class CardPlacementSystem : MonoBehaviour
             await TakeCard();
         }
 
-        textHP_Player.text = PlayerProperties.Instance.fame.ToString();
         turnBlocker.SetActive(false);
     }
     
@@ -95,9 +94,6 @@ public class CardPlacementSystem : MonoBehaviour
         if(cardPrefab == null) return;
 		GameObject card = Instantiate(cardPrefab,canvas.transform);
         card.transform.position = deckTransform.position;
-
-        // float xPos = ((handDeck.cardsInDeck.Count+1.5f) / 2f) *
-        //     (hand.GetComponent<GridLayoutGroup>().cellSize.x + hand.GetComponent<GridLayoutGroup>().spacing.x);
 
         float xPos = 90f;
         Vector3 movePos = new Vector3();
