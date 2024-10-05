@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,8 @@ public class EnemyPreset : MonoBehaviour
 	public TextMeshProUGUI outputField;
 	[SerializeField] private HonestReactions honestReaction;
 	[SerializeField] private GameObject nextTurn;
+
+	[SerializeField] private Transform cardSpawnPosition;
 
 	public bool isDead = false;
 
@@ -110,6 +113,12 @@ public class EnemyPreset : MonoBehaviour
 		
 		transform.parent.gameObject.SetActive(false);
 	}
+	
+	public async UniTask MoveCard(GameObject card,  Vector3 destination)
+	{
+		Tween move = card.transform.DOMove(destination, 0.5f);
+		await move.ToUniTask();
+	}
 
 	public IEnumerator TakeTurn()
 	{
@@ -121,11 +130,24 @@ public class EnemyPreset : MonoBehaviour
 		int damageResistance = 0;
 		float heal = 0;
 		if (isDead) { yield return null; }
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 		foreach (var cardObject in turn.cards)
 		{
 			if (isDead) { break; }
-			var cardInstance = Instantiate(cardObject, CardPlacementSystem.Instance.playboard.transform);
+			var cardInstance = Instantiate(cardObject, cardSpawnPosition);
+			
+			float xPos = 90f;
+			Vector3 movePos = new Vector3();
+
+        
+			movePos = CardPlacementSystem.Instance.playboard.transform.position + new Vector3((CardPlacementSystem.Instance.playboardDeck.cardsInDeck.Count) * 100f, 0, 0);
+
+
+			MoveCard(cardInstance, movePos);
+			yield return new WaitForSeconds(0.5f);
+			
+			cardInstance.transform.SetParent(CardPlacementSystem.Instance.playboard.transform);
+			
 			cardInstance.transform.GetChild(0).gameObject.SetActive(true);
 			playedCards.Add(cardInstance);
 			outputField.text = "Враг:\n";
