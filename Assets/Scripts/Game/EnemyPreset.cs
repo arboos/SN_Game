@@ -18,6 +18,7 @@ public class EnemyPreset : MonoBehaviour
 	public float DamageResistance;
 
 	[SerializeField] private Image HPBar;
+	[SerializeField] private int winReward;
 	public TextMeshProUGUI outputField;
 	[SerializeField] private GameObject nextTurn;
 
@@ -31,7 +32,6 @@ public class EnemyPreset : MonoBehaviour
 
 	public void TakeDamage(int damage)
 	{
-
 		if (DamageResistance != 0)
 		{
 			HP -= (int)(damage * DamageResistance);
@@ -66,6 +66,7 @@ public class EnemyPreset : MonoBehaviour
 		CardPlacementSystem.Instance.shop.gameObject.SetActive(true);
 		CardPlacementSystem.Instance.shop.Open();
 		MenuManager.Instance.winScreen.SetActive(true);
+		PlayerProperties.Instance.fame += winReward;
 		StopAllCoroutines();
 		transform.parent.gameObject.SetActive(false);
 	}
