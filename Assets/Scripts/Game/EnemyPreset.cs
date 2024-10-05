@@ -31,10 +31,11 @@ public class EnemyPreset : MonoBehaviour
 		public GameObject[] cards;
 	}
 
-	public void TakeDamage(int damage)
+	public void TakeDamage(int damage,float resistancePenetration)
 	{
 		if (DamageResistance != 0)
 		{
+			DamageResistance = Mathf.Clamp(DamageResistance - resistancePenetration,0,100);
 			HP -= (int)(damage * DamageResistance);
 			if (HP - (int)(damage * DamageResistance) <= 0)
 			{
