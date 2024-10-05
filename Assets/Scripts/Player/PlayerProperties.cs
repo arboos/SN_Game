@@ -93,7 +93,7 @@ public class PlayerProperties : MonoBehaviour
 	private void UpdateViewModels()
 	{
 		//hpBar.fillAmount = fame / (float)maxHP;
-		CardPlacementSystem.Instance.textHP_Player.text = fame.ToString();
+		CardPlacementSystem.Instance.textHP_Player.text = "Слава: " + fame.ToString() +"\nЗащита: " + damageResistance;
 	}
 
 	private void Die()
