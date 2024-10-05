@@ -99,9 +99,19 @@ public class CardPlacementSystem : MonoBehaviour
         // float xPos = ((handDeck.cardsInDeck.Count+1.5f) / 2f) *
         //     (hand.GetComponent<GridLayoutGroup>().cellSize.x + hand.GetComponent<GridLayoutGroup>().spacing.x);
 
-        float xPos = 115f;
+        float xPos = 90f;
+        Vector3 movePos = new Vector3();
+
+        if (handDeck.cardsInDeck.Count > 0)
+        {
+            movePos = handDeck.cardsInDeck[handDeck.cardsInDeck.Count - 1].transform.position;
+            //+ hand.GetComponent<RectTransform>().localPosition + new Vector3(xPos, 0, 0);
+        }
+        else
+        { 
+            movePos = hand.transform.position;
+        }
         
-        Vector3 movePos = hand.transform.position + new Vector3(handDeck.cardsInDeck.Count * xPos, 0, 0);
         
         print(hand.GetComponent<GridLayoutGroup>().cellSize.x);
         print(hand.GetComponent<GridLayoutGroup>().spacing.x);
