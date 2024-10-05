@@ -6195,7 +6195,7 @@ MonoBehaviour:
   shop: {fileID: 4550706082738187551}
   turnBlocker: {fileID: 41030385}
   endTurnGO: {fileID: 656837083}
-  nextTurnGO: {fileID: 0}
+  nextTurnGO: {fileID: 397711024}
 --- !u!114 &2049008285
 MonoBehaviour:
   m_ObjectHideFlags: 0
