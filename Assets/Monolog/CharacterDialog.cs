@@ -22,8 +22,8 @@ public class CharacterDialog : MonoBehaviour
 
     private void Update()
     {
-        if(alignmentLeft) dialogPanelRectTransform.position = new Vector3(dialogPanelRectTransform.rect.width/2f, 
-            dialogPanelRectTransform.position.y, dialogPanelRectTransform.position.z);
+        if(alignmentLeft) dialogPanelRectTransform.anchoredPosition = new Vector2(dialogPanelRectTransform.rect.width/2f, 
+            dialogPanelRectTransform.anchoredPosition.y);
     }
 
     public void StartText(List<string> phrases)
