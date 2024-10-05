@@ -91,10 +91,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 4
   Damage: 0
-  DamageResistance: 0
-  Heal: 20
+  DamageResistance: 5
+  Heal: 10
   Price: 0
-  CardType: 4
+  CardType: 2
 --- !u!114 &-8344317743881553008
 MonoBehaviour:
   m_ObjectHideFlags: 0
