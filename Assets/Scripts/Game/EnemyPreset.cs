@@ -191,9 +191,9 @@ public class EnemyPreset : MonoBehaviour
 		int count = CardPlacementSystem.Instance.playboard.transform.childCount;
 		for (int j = 0; j < count; j++)
 		{
-			MoveCard(CardPlacementSystem.Instance.playboard.transform.GetChild(j).gameObject, cardSpawnPosition.position);
-			Destroy(CardPlacementSystem.Instance.playboard.transform.GetChild(j).gameObject, 0.5f);
-			yield return new WaitForSeconds(0.3f);
+			MoveCard(CardPlacementSystem.Instance.playboard.transform.GetChild(0).gameObject, cardSpawnPosition.position);
+			Destroy(CardPlacementSystem.Instance.playboard.transform.GetChild(0).gameObject, 0.5f);
+			yield return new WaitForSeconds(0.6f);
 			
 		}
 		nextTurn.SetActive(true);
