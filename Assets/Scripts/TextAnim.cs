@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -25,10 +26,10 @@ public class TextAnim : MonoBehaviour
         _button.AddComponent<EventTrigger>();
         _button.GetComponent<EventTrigger>().triggers.Add(bigButt);
         _button.GetComponent<EventTrigger>().triggers.Add(smallButt);
-
-
-        TextAnim textAnim;
     }
-    
-    
+
+    private void OnDisable()
+    {
+        _transform.localScale = new Vector3(1f, 1f, 1f);
+    }
 }
