@@ -77,8 +77,6 @@ public class CardPlacementSystem : MonoBehaviour
         
         enemyDialog.StartText(enemyPhrases);
         await UniTask.Delay(TimeSpan.FromSeconds(timeToWaitEnemy));
-        
-        turnBlocker.SetActive(false);
 
         for (int i = 0; i < cardTakeStart; i++)
         {
@@ -86,6 +84,7 @@ public class CardPlacementSystem : MonoBehaviour
         }
 
         textHP_Player.text = PlayerProperties.Instance.fame.ToString();
+        turnBlocker.SetActive(false);
     }
     
     
@@ -96,16 +95,18 @@ public class CardPlacementSystem : MonoBehaviour
 		GameObject card = Instantiate(cardPrefab,canvas.transform);
         card.transform.position = deckTransform.position;
 
-        await MoveCard(card, hand.transform);
+        Vector3 movePos = hand.transform.position + new Vector3();
+        
+        await MoveCard(card, movePos);
         
         card.transform.SetParent(hand.transform,false);
         handDeck.AddCardToDeck(card);
         card.GetComponent<CardLogic>().currentContainer = handDeck;
     }
 
-    public async UniTask MoveCard(GameObject card, Transform destination)
+    public async UniTask MoveCard(GameObject card,  Vector3 destination)
     {
-        Tween move = card.transform.DOMove(destination.position, 0.5f);
+        Tween move = card.transform.DOMove(destination, 0.5f);
         await move.ToUniTask();
     }
 
