@@ -2267,6 +2267,7 @@ MonoBehaviour:
   MaxHP: 100
   DamageResistance: 0
   HPBar: {fileID: 863343993}
+  winReward: 0
   outputField: {fileID: 428974293}
   nextTurn: {fileID: 397711024}
   isDead: 0
@@ -3522,7 +3523,7 @@ MonoBehaviour:
   maxHP: 100
   damageResistance: 0
   currentDeckBuild: []
-  fame: 0
+  fame: 50
   hpBar: {fileID: 882716542}
 --- !u!4 &1453342271
 Transform:

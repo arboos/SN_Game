@@ -108,7 +108,7 @@ public class EnemyPreset : MonoBehaviour
 			yield return new WaitForSeconds(2f);
 		}
 
-		player.TakeDamage(damage);
+		PlayerProperties.Instance.TakeDamage(damage);
 		DamageResistance = 1 - damageResistance;
 		currentTurnIndex++;
 

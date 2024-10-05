@@ -76,8 +76,8 @@ public class TurnManager : MonoBehaviour
 			Heal += card.Heal;
 			yield return new WaitForSeconds(compilationSpeed);
 		}
-		player.SetResistance(DamageResistance + DamageResistanceBuff);
-		player.Heal(Heal + HealBuff);
+		PlayerProperties.Instance.SetResistance(DamageResistance + DamageResistanceBuff);
+		PlayerProperties.Instance.Heal(Heal + HealBuff);
 		enemy.TakeDamage(Damage + DamageBuff);
 		yield return new WaitForSeconds(compilationSpeed);
 		CardPlacementSystem.Instance.EndTurn();
