@@ -10,8 +10,18 @@ public class CardDeck : MonoBehaviour
     public int deckCapacity;
     public List<GameObject> cardsInDeck;
 
+    public bool mainDeck;
+
     private void Start()
     {
+        if (mainDeck)
+        {
+            cardsInDeck = new List<GameObject>();
+            foreach (var card in CardManager.Instance.allCards)
+            {
+                AddCardToDeck(card);
+            }
+        }
         ReshuffleDeck();
     }
 

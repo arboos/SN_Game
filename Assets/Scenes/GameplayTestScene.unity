@@ -854,8 +854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 497, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 498.49994, y: 0}
+  m_SizeDelta: {x: 197, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &428974293
 MonoBehaviour:
@@ -1304,7 +1304,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1764698631}
+      - m_Target: {fileID: 1110352147}
         m_TargetAssemblyTypeName: TurnManager, Assembly-CSharp
         m_MethodName: Compilate
         m_Mode: 1
@@ -1681,6 +1681,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckCapacity: 0
   cardsInDeck: []
+  mainDeck: 0
 --- !u!1 &751256929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2504,6 +2505,55 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1110352146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110352148}
+  - component: {fileID: 1110352147}
+  m_Layer: 0
+  m_Name: TurnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1110352147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110352146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14b74620afbb51443a211c11a1619c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1453342270}
+  enemy: {fileID: 1036650001}
+  cardsField: {fileID: 1422140622}
+  outputField: {fileID: 1001300996}
+  compilationSpeed: 0.2
+--- !u!4 &1110352148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110352146}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1197.4836, y: 596.3709, z: 6.154705}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3363,6 +3413,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckCapacity: 0
   cardsInDeck: []
+  mainDeck: 0
 --- !u!1 &1429494226
 GameObject:
   m_ObjectHideFlags: 0
@@ -4112,7 +4163,7 @@ MonoBehaviour:
   - {fileID: 1774450022247767726, guid: fa5d52c973678744fa91483c385fc2ad, type: 3}
   - {fileID: 3574347157355482819, guid: 3bbd92aea800e69408aef696b7842a6d, type: 3}
   - {fileID: 5850416003306657991, guid: 298d18a54f3450549b89a449087fd3fe, type: 3}
-  - {fileID: 4997787082985250935, guid: af043c5ae9ad6c14c929bd2ac293044a, type: 3}
+  mainDeck: 1
 --- !u!114 &1726593871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4147,7 +4198,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1764698629}
   - component: {fileID: 1764698630}
-  - component: {fileID: 1764698631}
   m_Layer: 0
   m_Name: CardManager
   m_TagString: Untagged
@@ -4194,23 +4244,6 @@ MonoBehaviour:
   lockedCards: []
   playerDeck: {fileID: 1726593870}
   playerHandDeck: {fileID: 0}
---- !u!114 &1764698631
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1764698628}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14b74620afbb51443a211c11a1619c35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1453342270}
-  enemy: {fileID: 1036650001}
-  cardsField: {fileID: 1422140622}
-  outputField: {fileID: 1001300996}
-  compilationSpeed: 0.2
 --- !u!1 &1804046551
 GameObject:
   m_ObjectHideFlags: 0
@@ -5005,7 +5038,7 @@ MonoBehaviour:
   maxHandCapacity: 8
   maxPlayboardCapacity: 8
   cardTakeAmount: 2
-  turnManager: {fileID: 1764698631}
+  turnManager: {fileID: 0}
   deck: {fileID: 1726593870}
   playboardDeck: {fileID: 1422140622}
   handDeck: {fileID: 727174417}
@@ -5686,4 +5719,5 @@ SceneRoots:
   - {fileID: 1186642063}
   - {fileID: 2049008283}
   - {fileID: 1764698629}
+  - {fileID: 1110352148}
   - {fileID: 1453342271}

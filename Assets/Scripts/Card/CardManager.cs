@@ -16,21 +16,15 @@ public class CardManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Debug.LogError("One more CardManager by name" + gameObject.name);
-            Destroy(gameObject);
+            Destroy(this);
         }
-    }
-
-    private void Start()
-    {
-        playerDeck.cardsInDeck = allCards;
     }
 
     public CardDeck playerDeck;
     public CardDeck playerHandDeck;
-    
     
 }

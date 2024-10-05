@@ -66,8 +66,8 @@ public class EnemyPreset : MonoBehaviour
 		CardPlacementSystem.Instance.shop.gameObject.SetActive(true);
 		CardPlacementSystem.Instance.shop.Open();
 		MenuManager.Instance.winScreen.SetActive(true);
+		StopAllCoroutines();
 		transform.parent.gameObject.SetActive(false);
-		//œ≈Õ»— ¡Œ¡–¿ 8================d
 
 	}
 

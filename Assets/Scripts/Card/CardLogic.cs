@@ -17,7 +17,7 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	private void Awake()
 	{
 		placementSystem = CardPlacementSystem.Instance;
-		turnManager = GameObject.Find("CardManager").GetComponent<TurnManager>();
+		turnManager = GameObject.Find("TurnManager").GetComponent<TurnManager>();
 		currentParent = placementSystem.hand.transform;
 	}
 
