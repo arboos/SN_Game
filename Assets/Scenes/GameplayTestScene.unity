@@ -3033,7 +3033,7 @@ MonoBehaviour:
     - {fileID: 5949480487649978953, guid: 593309e81834ef342a726d62efd43c09, type: 3}
     - {fileID: 5949480487649978953, guid: 06b3476575fedc44483530c11f7c9f58, type: 3}
   playedCards: []
-  HP: 1
+  HP: 20
   MaxHP: 20
   DamageResistance: 0
   HPBar: {fileID: 487264367}

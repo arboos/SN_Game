@@ -102,7 +102,9 @@ public class EnemyPreset : MonoBehaviour
 		yield return new WaitForSeconds(1f);
 		foreach (var cardObject in turn.cards)
 		{
-			playedCards.Add(Instantiate(cardObject, CardPlacementSystem.Instance.playboard.transform));
+			var cardInstance = Instantiate(cardObject, CardPlacementSystem.Instance.playboard.transform);
+			cardInstance.transform.GetChild(0).gameObject.SetActive(true);
+			playedCards.Add(cardInstance);
 			outputField.text = "Враг:\n";
 			CardInfo card = cardObject.GetComponent<CardInfo>();
 			damage += card.Damage;
