@@ -23,6 +23,7 @@ public class EnemyPreset : MonoBehaviour
 	[SerializeField] private GameObject nextTurn;
 
 	public bool isDead = false;
+	
 
 	[Serializable]
 	public struct Turn

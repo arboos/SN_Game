@@ -19,6 +19,7 @@ public class PlayerProperties : MonoBehaviour
 		if (Instance == null)
 		{
 			Instance = this;
+            DontDestroyOnLoad(gameObject);
 		}
 		else
 		{
