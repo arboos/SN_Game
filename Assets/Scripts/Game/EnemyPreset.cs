@@ -11,7 +11,7 @@ public class EnemyPreset : MonoBehaviour
 	public int currentTurnIndex;
 	public List<Turn> presets;
 	public List<GameObject> playedCards;
-	[SerializeField] private PlayerProperties player;
+	//[SerializeField] private PlayerProperties player;
 
 	public int HP;
 	public int MaxHP;
