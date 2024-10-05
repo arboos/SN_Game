@@ -20,6 +20,7 @@ public class EnemyPreset : MonoBehaviour
 	[SerializeField] private Image HPBar;
 	[SerializeField] private int winReward;
 	public TextMeshProUGUI outputField;
+	[SerializeField] private HonestReactions honestReaction;
 	[SerializeField] private GameObject nextTurn;
 
 	public bool isDead = false;
@@ -38,6 +39,11 @@ public class EnemyPreset : MonoBehaviour
 
 	public void TakeDamage(int damage,float resistancePenetration)
 	{
+		if (damage > 0)
+		{
+			honestReaction.Shake(1);
+			honestReaction.PlayAngry();
+		}
 		if (DamageResistance != 0)
 		{
 			DamageResistance = Mathf.Clamp(DamageResistance - resistancePenetration,-100,100);
@@ -47,6 +53,7 @@ public class EnemyPreset : MonoBehaviour
 				HP = 0;
 				UpdateViewModels();
 				Debug.Log("L");
+				honestReaction.Shake(5);
 				Die();
 				return;
 			}
@@ -100,19 +107,25 @@ public class EnemyPreset : MonoBehaviour
 			{
 				damageResistance += (card.DamageResistance / 100f);
 			}
+			honestReaction.PlayNeutral();
 			heal += card.Heal;
 			if (damage > 0)
 			{
 				outputField.text += "Damage: " + damage.ToString() + "\n";
+				honestReaction.PlayHappy();
 			}
+			honestReaction.PlayNeutral();
 			if (damageResistance != 1)
 			{
 				outputField.text += "Damage resistance: " + ((damageResistance) * 100).ToString() + "%\n";
 			}
+			honestReaction.PlayNeutral();
 			if (heal > 0)
 			{
 				outputField.text += "Healing: " + heal.ToString();
+				honestReaction.PlayHappy();
 			}
+			honestReaction.PlayNeutral();
 			yield return new WaitForSeconds(2f);
 		}
 
