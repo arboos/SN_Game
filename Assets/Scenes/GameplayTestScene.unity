@@ -4584,7 +4584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.040000003, y: 0.28500003}
   m_AnchorMax: {x: 0.113000005, y: 0.3355555}
-  m_AnchoredPosition: {x: -0.8250122, y: -0.24745178}
+  m_AnchoredPosition: {x: -0.8249512, y: -0.24746704}
   m_SizeDelta: {x: -1.0672913, y: 0.701004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1508861070
@@ -5766,6 +5766,7 @@ MonoBehaviour:
   timeToWaitPlayer: 2
   enemyDialog: {fileID: 1701917008}
   timeToWaitEnemy: 2
+  deckTransform: {fileID: 656837084}
   textHP_Player: {fileID: 435119944}
   textHP_Enemy: {fileID: 484327963}
   deck: {fileID: 1726593870}

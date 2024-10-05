@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
@@ -29,6 +31,8 @@ public class CardPlacementSystem : MonoBehaviour
     
     [SerializeField] private CharacterDialog enemyDialog;
     [SerializeField] private float timeToWaitEnemy;
+
+    [SerializeField] private Transform deckTransform;
     
     
     public TextMeshProUGUI textHP_Player;
@@ -63,36 +67,46 @@ public class CardPlacementSystem : MonoBehaviour
         playboardDeck = playboard.GetComponent<CardDeck>();
         handDeck = hand.GetComponent<CardDeck>();
 
-        StartCoroutine(StartGame());
+        StartGame();
     }
 
-    public IEnumerator StartGame()
+    public async void StartGame()
     {
         playerDialog.StartText(playerPhrases);
-        yield return new WaitForSeconds(timeToWaitPlayer);
+        await UniTask.Delay(TimeSpan.FromSeconds(timeToWaitPlayer));
         
         enemyDialog.StartText(enemyPhrases);
-        yield return new WaitForSeconds(timeToWaitEnemy);
+        await UniTask.Delay(TimeSpan.FromSeconds(timeToWaitEnemy));
         
         turnBlocker.SetActive(false);
 
         for (int i = 0; i < cardTakeStart; i++)
         {
-            TakeCard();
+            await TakeCard();
         }
 
         textHP_Player.text = PlayerProperties.Instance.fame.ToString();
     }
     
     
-    public void TakeCard()
+    public async UniTask TakeCard()
     {
         GameObject cardPrefab = deck.TakeUpperCard();
         if(cardPrefab == null) return;
 		GameObject card = Instantiate(cardPrefab,canvas.transform);
+        card.transform.position = deckTransform.position;
+
+        await MoveCard(card, hand.transform);
+        
         card.transform.SetParent(hand.transform,false);
         handDeck.AddCardToDeck(card);
         card.GetComponent<CardLogic>().currentContainer = handDeck;
+    }
+
+    public async UniTask MoveCard(GameObject card, Transform destination)
+    {
+        Tween move = card.transform.DOMove(destination.position, 0.5f);
+        await move.ToUniTask();
     }
 
     public void EndTurn()
