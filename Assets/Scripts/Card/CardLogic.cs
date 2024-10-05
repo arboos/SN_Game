@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,6 +8,7 @@ using UnityEngine.UI;
 public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
 	[SerializeField] private Transform currentParent;
+	[SerializeField] private TextMeshProUGUI namefield;
 	[SerializeField] private CardPlacementSystem placementSystem;
 	[SerializeField] private bool isPickedUp = false;
 	private TurnManager turnManager;
@@ -19,12 +21,15 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 		placementSystem = CardPlacementSystem.Instance;
 		turnManager = GameObject.Find("TurnManager").GetComponent<TurnManager>();
 		currentParent = placementSystem.hand.transform;
+		namefield.text = GetComponent<CardInfo>().Name;
+		namefield.gameObject.SetActive(false);
 	}
 
 	public void OnPointerDown(PointerEventData eventData)
 	{
 		if (!isPickedUp)
 		{
+			namefield.gameObject.SetActive(false);
 			Pick();
 		}
 	}
@@ -36,14 +41,17 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 			if (eventData.pointerCurrentRaycast.gameObject.name == "Playboard")
 			{
 				currentParent = placementSystem.playboard.transform;
+				namefield.gameObject.SetActive(true);
 			}
 			else if (eventData.pointerCurrentRaycast.gameObject.name == "Hand")
 			{
 				currentParent = placementSystem.hand.transform;
+				namefield.gameObject.SetActive(false);
 			}
 			else
 			{
 				currentParent = placementSystem.hand.transform;
+				namefield.gameObject.SetActive(false);
 			}
 		}
 		transform.SetParent(currentParent, false);
