@@ -96,9 +96,16 @@ public class CardPlacementSystem : MonoBehaviour
 		GameObject card = Instantiate(cardPrefab,canvas.transform);
         card.transform.position = deckTransform.position;
 
-        Vector3 movePos = hand.transform.position + new Vector3((handDeck.cardsInDeck.Count / 0.5f) * 
-                          (hand.GetComponent<GridLayoutGroup>().cellSize.x + hand.GetComponent<GridLayoutGroup>().spacing.x)
-            , 0, 0);
+        // float xPos = ((handDeck.cardsInDeck.Count+1.5f) / 2f) *
+        //     (hand.GetComponent<GridLayoutGroup>().cellSize.x + hand.GetComponent<GridLayoutGroup>().spacing.x);
+
+        float xPos = 115f;
+        
+        Vector3 movePos = hand.transform.position + new Vector3(handDeck.cardsInDeck.Count * xPos, 0, 0);
+        
+        print(hand.GetComponent<GridLayoutGroup>().cellSize.x);
+        print(hand.GetComponent<GridLayoutGroup>().spacing.x);
+        print(xPos + "Xpos");
         
         await MoveCard(card, movePos);
         
