@@ -109,22 +109,22 @@ public class CardPlacementSystem : MonoBehaviour
     {
         GameObject cardPrefab = deck.TakeUpperCard();
         if(cardPrefab == null) return;
-		GameObject card = Instantiate(cardPrefab,canvas.transform);
+		GameObject card = Instantiate(cardPrefab, canvas.transform);
         card.transform.position = deckTransform.position;
 
         float xPos = 90f;
         Vector3 movePos = new Vector3();
-
         
         movePos = hand.transform.position + new Vector3((handDeck.cardsInDeck.Count) * 100f, 0, 0);
-        
-        print(movePos);
+
+        card.GetComponent<RectTransform>().sizeDelta = new Vector2(66, 100);
+        card.GetComponent<CardLogic>().currentContainer = handDeck;
         
         await MoveCard(card, movePos);
         
         card.transform.SetParent(hand.transform,false);
         handDeck.AddCardToDeck(card);
-        card.GetComponent<CardLogic>().currentContainer = handDeck;
+        
     }
 
     public async UniTask MoveCard(GameObject card,  Vector3 destination)
