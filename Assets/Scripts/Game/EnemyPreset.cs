@@ -139,6 +139,7 @@ public class EnemyPreset : MonoBehaviour
 			Destroy(CardPlacementSystem.Instance.playboard.transform.GetChild(j).gameObject);
 		}
 		nextTurn.SetActive(true);
+		CardPlacementSystem.Instance.turnBlocker.SetActive(false);
 	}
 
 }

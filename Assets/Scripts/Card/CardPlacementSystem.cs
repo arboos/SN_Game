@@ -5,6 +5,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CardPlacementSystem : MonoBehaviour
 {
@@ -95,7 +96,9 @@ public class CardPlacementSystem : MonoBehaviour
 		GameObject card = Instantiate(cardPrefab,canvas.transform);
         card.transform.position = deckTransform.position;
 
-        Vector3 movePos = hand.transform.position + new Vector3();
+        Vector3 movePos = hand.transform.position + new Vector3((handDeck.cardsInDeck.Count / 0.5f) * 
+                          (hand.GetComponent<GridLayoutGroup>().cellSize.x + hand.GetComponent<GridLayoutGroup>().spacing.x)
+            , 0, 0);
         
         await MoveCard(card, movePos);
         
