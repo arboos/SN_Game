@@ -383,10 +383,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 819370460}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 169.685, y: -26.815}
-  m_SizeDelta: {x: 339.37, y: 53.63}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &176707920
 CanvasRenderer:
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_text: "\u0444\u0440\u0430\u0437\u0430 enemy 1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a3e420a354a9f342bcfbf755b5aab59, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -5492163005565701805, guid: 8a3e420a354a9f342bcfbf755b5aab59, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2529,7 +2529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &819370456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2625,8 +2625,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.59866685, y: 1}
   m_AnchorMax: {x: 0.59866685, y: 1}
-  m_AnchoredPosition: {x: 171.5, y: -25.820007}
-  m_SizeDelta: {x: 339.37, y: 53.63}
+  m_AnchoredPosition: {x: 171.5, y: -27}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &861394483
 GameObject:
@@ -4978,7 +4978,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1701917012
 RectTransform:
@@ -6222,7 +6222,7 @@ RectTransform:
   m_AnchorMin: {x: 0.143, y: 0}
   m_AnchorMax: {x: 0.143, y: 0}
   m_AnchoredPosition: {x: 170.70001, y: 26.315063}
-  m_SizeDelta: {x: 341.54, y: 53.63}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &726296737456905781
 RectTransform:
@@ -6604,10 +6604,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 628848811921357651}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 170.77, y: -26.815}
-  m_SizeDelta: {x: 341.54, y: 53.63}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2961822676300136701
 CanvasRenderer:
@@ -7570,7 +7570,7 @@ MonoBehaviour:
   m_text: "\u0444\u0440\u0430\u0437\u0430 \u0438\u0433\u0440\u043E\u043A\u0430 1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8a3e420a354a9f342bcfbf755b5aab59, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -5492163005565701805, guid: 8a3e420a354a9f342bcfbf755b5aab59, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8707,7 +8707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &8609147040911836153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8792,7 +8792,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &9108692717283485765
 RectTransform:

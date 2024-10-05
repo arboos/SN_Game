@@ -79,6 +79,9 @@ public class CardPlacementSystem : MonoBehaviour
         enemyDialog.StartText(enemyPhrases);
         await UniTask.Delay(TimeSpan.FromSeconds(timeToWaitEnemy));
 
+        playerDialog.gameObject.SetActive(false);
+        enemyDialog.gameObject.SetActive(false);
+
         for (int i = 0; i < cardTakeStart; i++)
         {
             await TakeCard();

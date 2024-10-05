@@ -8,7 +8,6 @@ using Random = UnityEngine.Random;
 
 public class Shop : MonoBehaviour
 {
-    public List<GameObject> items;
     public List<GameObject> itemsInShop;
     public int itemsCount;
     
@@ -22,10 +21,10 @@ public class Shop : MonoBehaviour
     {
         for (int i = 0; i < itemsCount; i++)
         {
-            var item = items[Random.Range(0, items.Count)];
+            var item = CardManager.Instance.lockedCards[Random.Range(0, CardManager.Instance.lockedCards.Count)];
             Destroy(item.gameObject.GetComponent<Button>());
             itemsInShop.Add(item);
-            items.Remove(item);
+            CardManager.Instance.lockedCards.Remove(item);
         }
 
         foreach (var item in itemsInShop)
@@ -63,7 +62,6 @@ public class Shop : MonoBehaviour
             card.GetComponent<CardLogic>().currentContainer = CardPlacementSystem.Instance.deck;
 
             CardManager.Instance.allCards.Add(card);
-            
         }
     }
     
@@ -74,10 +72,10 @@ public class Shop : MonoBehaviour
         {
             Destroy(cardsPool.GetChild(i).gameObject);
         }
-        items = new List<GameObject>();
+        
         foreach (var item in itemsInShop)
         {
-            items.Add(item);
+            CardManager.Instance.lockedCards.Add(item);
         }
         
         // Добавляем новые карты в магазин и рендерим их
