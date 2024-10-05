@@ -229,8 +229,9 @@ MonoBehaviour:
     \u0441\u0432\u0435\u0442\u043B\u044B\u0439 \u0434\u0435\u043D\u044C"
   Damage: 0
   DamageResistance: 2
+  DamagePenetration: 0
   Heal: 6
-  Price: 0
+  Price: 6
   CardType: 2
 --- !u!114 &-1971009377166478047
 MonoBehaviour:
