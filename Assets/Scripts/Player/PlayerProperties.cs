@@ -25,7 +25,7 @@ public class PlayerProperties : MonoBehaviour
 	public AudioClip damaged;
 	public AudioClip healed;
 	public AudioClip shopMusic;
-	
+
 
 	private void Awake()
 	{
@@ -71,7 +71,7 @@ public class PlayerProperties : MonoBehaviour
 		}
 		if (damageResistance != 0)
 		{
-			fame -= Mathf.Clamp(damage - damageResistance,0,1000);
+			fame -= Mathf.Clamp(damage - damageResistance, 0, 1000);
 		}
 		else
 		{
@@ -82,7 +82,6 @@ public class PlayerProperties : MonoBehaviour
 
 	public void Heal(int heal)
 	{
-		//fame = Mathf.Clamp(fame + heal,0,maxHP);
 		audioSource.PlayOneShot(healed);
 		fame = fame + heal;
 		UpdateViewModels();
@@ -96,27 +95,26 @@ public class PlayerProperties : MonoBehaviour
 
 	public void UpdateViewModels()
 	{
-		//hpBar.fillAmount = fame / (float)maxHP;
-		CardPlacementSystem.Instance.textHP_Player.text = "Слава: " + fame.ToString() +"\nЗащита: " + damageResistance;
+		CardPlacementSystem.Instance.textHP_Player.text = "Слава: " + fame.ToString() + "\nЗащита: " + damageResistance;
 	}
 
 	private async void Die()
 	{
 		await UniTask.Delay(TimeSpan.FromSeconds(2f));
-		
+
 		CardPlacementSystem.Instance.hand.SetActive(false);
 		CardPlacementSystem.Instance.playboard.SetActive(false);
-		
+
 		CardPlacementSystem.Instance.playerDialog.gameObject.SetActive(true);
 		CardPlacementSystem.Instance.playerDialog.StartText(CardPlacementSystem.Instance.playerPhrasesLose);
 
 		await UniTask.Delay(TimeSpan.FromSeconds(CardPlacementSystem.Instance.playerPhrasesLose[0].Length * 0.1f + 2f));
-		
+
 		CardPlacementSystem.Instance.enemyDialog.gameObject.SetActive(true);
 		CardPlacementSystem.Instance.enemyDialog.StartText(CardPlacementSystem.Instance.enemyPhrasesLose);
 
 		await UniTask.Delay(TimeSpan.FromSeconds(CardPlacementSystem.Instance.enemyPhrasesLose[0].Length * 0.1f + 2f));
-		
+
 		audioSource.PlayOneShot(defeat);
 		MenuManager.Instance.looseScreen.SetActive(true);
 		fame = 10;

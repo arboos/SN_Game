@@ -97,10 +97,8 @@ public class MenuManager : MonoBehaviour
 		audioMixer.SetFloat(parameters.groupName, (-20 + (parameters.slider.value * 40)));
 	}
 
-	//!!!TEST FUNCTION! DO NOT USE IN REAL PROJECT!!!
 	public void GatherAndProcessInput()
 	{
-		//Debug.Log("Frame passed!");
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			if (!pauseScreen.active)

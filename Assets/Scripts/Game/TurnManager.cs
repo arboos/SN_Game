@@ -6,14 +6,13 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
-	//public PlayerProperties player;
 	[SerializeField] private EnemyPreset enemy;
 	[SerializeField] private CardDeck cardsField;
 	public TextMeshProUGUI outputField;
 	[Header("Visual Settings")]
 	[SerializeField] private float compilationSpeed;
 
-	private string CheckCombination(int buffId) //temporary realisation. Possible changes in the future;
+	private string CheckCombination(int buffId)
 	{
 		try
 		{
@@ -197,7 +196,7 @@ public class TurnManager : MonoBehaviour
 		{
 			outputField.text += "Снижение защиты: " + ResistancePenetration.ToString() + "\n";
 		}
-		if (DamageResistance != 1)
+		if (DamageResistance > 0)
 		{
 			outputField.text += "Защита: " + DamageResistance.ToString();
 			if (DamageResistanceBuff != 0)

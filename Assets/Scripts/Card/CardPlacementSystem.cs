@@ -18,10 +18,10 @@ public class CardPlacementSystem : MonoBehaviour
     [SerializeField] public GameObject canvas;
     [Header("������")]
     [Header("��������� ����")]
-    [SerializeField] private int maxHandCapacity;//�������� ���� � ����
-    [SerializeField] private int maxPlayboardCapacity; //�������� ���� �� ������� ����
-    [SerializeField] private int cardTakeAmount;//���������� ���� ���������� � ������ ������� ����
-    [SerializeField] private int cardTakeStart;//���������� ���� ���������� � ������ ������� ����
+    [SerializeField] private int maxHandCapacity;
+    [SerializeField] private int maxPlayboardCapacity;
+    [SerializeField] private int cardTakeAmount;
+    [SerializeField] private int cardTakeStart;
     [SerializeField] private TurnManager turnManager;
 
     [Header("Start phrases")]
@@ -149,7 +149,6 @@ public class CardPlacementSystem : MonoBehaviour
         
         for (int j = 0; j < count; j++)
         {
-            //print("Remove this");
             await MoveCard(playboard.transform.GetChild(0).gameObject, deckTransform.position);
             playboard.transform.GetChild(0).transform.SetParent(deck.transform);
         }
