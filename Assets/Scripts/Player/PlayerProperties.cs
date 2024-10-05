@@ -8,7 +8,7 @@ public class PlayerProperties : MonoBehaviour
 	public static PlayerProperties Instance { get; private set; }
 	[Header("��������������")]
 	public int maxHP;
-	public float damageResistance;
+	public int damageResistance;
 	public List<GameObject> currentDeckBuild;
 	public int fame;
 	[Header("UI/UX")]
@@ -22,6 +22,7 @@ public class PlayerProperties : MonoBehaviour
 	public AudioClip cardTaken;
 	public AudioClip damaged;
 	public AudioClip healed;
+	public AudioClip shopMusic;
 
 	private void Awake()
 	{
@@ -54,20 +55,20 @@ public class PlayerProperties : MonoBehaviour
 
 	public void TakeDamage(int damage)
 	{
-		if ((int)(damage * damageResistance) > 0)
+		if (damage - damageResistance > 0)
 		{
 			honestReaction.Shake(1);
 			audioSource.PlayOneShot(damaged);
 			honestReaction.PlayAngry();
 		}
-		if (fame - (int)(damage * damageResistance) <= 0)
+		if (fame - (damage - damageResistance) <= 0)
 		{
 			Die();
 			return;
 		}
 		if (damageResistance != 0)
 		{
-			fame -= (int)(damage * damageResistance);
+			fame -= damage - damageResistance;
 		}
 		else
 		{
@@ -84,9 +85,9 @@ public class PlayerProperties : MonoBehaviour
 		UpdateViewModels();
 	}
 
-	public void SetResistance(float resistance)
+	public void SetResistance(int resistance)
 	{
-		damageResistance = 1 - resistance;
+		damageResistance = resistance;
 	}
 
 	private void UpdateViewModels()
@@ -97,6 +98,7 @@ public class PlayerProperties : MonoBehaviour
 
 	private void Die()
 	{
+		audioSource.PlayOneShot(defeat);
 		MenuManager.Instance.looseScreen.SetActive(true);
 	}
 }

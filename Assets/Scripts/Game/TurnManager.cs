@@ -52,6 +52,24 @@ public class TurnManager : MonoBehaviour
 			}
 		}
 		catch { }
+		try
+		{
+			if (cardsField.cardsInDeck[buffId - 1].GetComponent<CardInfo>().CardType == 1
+				&& cardsField.cardsInDeck[buffId].GetComponent<CardInfo>().CardType == 2)
+			{
+				return "+defence";
+			}
+		}
+		catch { }
+		try
+		{
+			if (cardsField.cardsInDeck[buffId + 1].GetComponent<CardInfo>().CardType == 1
+			&& cardsField.cardsInDeck[buffId].GetComponent<CardInfo>().CardType == 2)
+			{
+				return "+defence";
+			}
+		}
+		catch { }
 		return "";
 	}
 
@@ -62,8 +80,8 @@ public class TurnManager : MonoBehaviour
 
 		int Damage = 0;
 		int DamageBuff = 0;
-		float DamageResistance = 0;
-		float DamageResistanceBuff = 0;
+		int DamageResistance = 0;
+		int DamageResistanceBuff = 0;
 		int Heal = 0;
 		int ResistancePenetration = 0;
 		foreach (GameObject cardObject in cards)
@@ -88,6 +106,11 @@ public class TurnManager : MonoBehaviour
 					DamageBuff += card.Damage;
 					PlayerProperties.Instance.honestReaction.PlayHappy();
 				}
+				else if (combination == "+defence")
+				{
+					DamageResistanceBuff += card.DamageResistance;
+					PlayerProperties.Instance.honestReaction.PlayHappy();
+				}
 				else if (combination == "heal")
 				{
 					Heal += card.Heal;
@@ -102,12 +125,13 @@ public class TurnManager : MonoBehaviour
 
 			if (card.DamageResistance != 0 && card.CardType == 1)
 			{
-				DamageResistance += (card.DamageResistance / 100f);
+				DamageResistance += card.DamageResistance;
 			}
 			yield return new WaitForSeconds(compilationSpeed);
 		}
 		PlayerProperties.Instance.SetResistance(DamageResistance + DamageResistanceBuff);
 		PlayerProperties.Instance.Heal(Heal);
+		Debug.Log(Damage + DamageBuff);
 		enemy.TakeDamage(Damage + DamageBuff, ResistancePenetration);
 		yield return new WaitForSeconds(compilationSpeed);
 		CardPlacementSystem.Instance.EndTurn();
@@ -148,6 +172,10 @@ public class TurnManager : MonoBehaviour
 				{
 					DamageBuff += card.Damage;
 				}
+				else if (combination == "+defence")
+				{
+					DamageResistanceBuff += card.DamageResistance;
+				}
 				else if (combination == "heal")
 				{
 					Heal += card.Heal;
@@ -158,7 +186,6 @@ public class TurnManager : MonoBehaviour
 				}
 				continue;
 			}
-
 			if (card.DamageResistance != 0 && card.CardType == 1)
 			{
 				DamageResistance += (card.DamageResistance / 100f);
@@ -179,10 +206,10 @@ public class TurnManager : MonoBehaviour
 		}
 		if (DamageResistance != 1)
 		{
-			outputField.text += "Защита: " + ((DamageResistance) * 100).ToString() + "%";
+			outputField.text += "Защита: " + ((DamageResistance) * 100).ToString();
 			if (DamageResistanceBuff != 0)
 			{
-				outputField.text += " +" + DamageResistanceBuff + "%";
+				outputField.text += " +" + DamageResistanceBuff;
 			}
 			outputField.text += "\n";
 		}
