@@ -228,8 +228,9 @@ MonoBehaviour:
   Name: "\u0413\u043E\u0440\u044B\u043D\u044F \u0441\u0438\u043B\u0430\u0447"
   Damage: 0
   DamageResistance: 2
+  DamagePenetration: 0
   Heal: 0
-  Price: 0
+  Price: 6
   CardType: 1
 --- !u!114 &-1971009377166478047
 MonoBehaviour:

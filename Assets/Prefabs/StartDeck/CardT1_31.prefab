@@ -304,8 +304,9 @@ MonoBehaviour:
     \u043C\u0430\u0442\u044C"
   Damage: 0
   DamageResistance: 3
+  DamagePenetration: 0
   Heal: 0
-  Price: 0
+  Price: 8
   CardType: 1
 --- !u!114 &-1971009377166478047
 MonoBehaviour:
