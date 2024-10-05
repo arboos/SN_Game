@@ -60,8 +60,8 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 		}
 		transform.SetParent(currentParent, false);
 		
-		currentParent.GetComponent<CardDeck>().AddCardToDeck(gameObject);
 		currentContainer.RemoveCard(gameObject);
+		currentParent.GetComponent<CardDeck>().AddCardToDeck(gameObject);
 		currentContainer = currentParent.GetComponent<CardDeck>();
 		isPickedUp = false;
 		turnManager.PreCompilate();
