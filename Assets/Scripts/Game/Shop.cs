@@ -41,7 +41,8 @@ public class Shop : MonoBehaviour
             {
                 print("BUY ON CLICK");
                 BuyCard(item, itemSpawned.GetComponent<Button>(), item.GetComponent<CardInfo>().Price);
-            });
+                
+			});
         }
     }
 
@@ -63,7 +64,9 @@ public class Shop : MonoBehaviour
             card.GetComponent<CardLogic>().currentContainer = CardPlacementSystem.Instance.deck;
 
             CardManager.Instance.allCards.Add(card);
-        }
+			PlayerProperties.Instance.UpdateViewModels();
+			fameValue.text = "Ваша слава: " + PlayerProperties.Instance.fame;
+		}
     }
     
     private void UpdateShop()

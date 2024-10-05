@@ -29,12 +29,6 @@ public class PlayerProperties : MonoBehaviour
 
 	private void Awake()
 	{
-		SceneManager.sceneLoaded += (Scene scene, LoadSceneMode mode) =>
-		{
-			honestReaction = GameObject.Find("HonestReaction").GetComponent<HonestReactions>();
-			UpdateViewModels();
-		};
-
 		if (Instance == null)
 		{
 			Instance = this;
@@ -44,6 +38,11 @@ public class PlayerProperties : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		SceneManager.sceneLoaded += (Scene scene, LoadSceneMode mode) =>
+		{
+			honestReaction = GameObject.Find("HonestReaction").GetComponent<HonestReactions>();
+			UpdateViewModels();
+		};
 	}
 
 	public void Start()
@@ -92,9 +91,10 @@ public class PlayerProperties : MonoBehaviour
 	public void SetResistance(int resistance)
 	{
 		damageResistance = resistance;
+		UpdateViewModels();
 	}
 
-	private void UpdateViewModels()
+	public void UpdateViewModels()
 	{
 		//hpBar.fillAmount = fame / (float)maxHP;
 		CardPlacementSystem.Instance.textHP_Player.text = "Слава: " + fame.ToString() +"\nЗащита: " + damageResistance;
