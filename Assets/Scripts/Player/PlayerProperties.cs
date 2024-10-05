@@ -5,8 +5,7 @@ using UnityEngine.UI;
 public class PlayerProperties : MonoBehaviour
 {
     public static PlayerProperties Instance { get; private set; }
-    [Header("Характеристики")]
-    public int HP;
+    [Header("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ")]
     public int maxHP;
     public float damageResistance;
     public List<GameObject> currentDeckBuild;
@@ -69,6 +68,7 @@ public class PlayerProperties : MonoBehaviour
     private void UpdateViewModels()
     {
         hpBar.fillAmount = fame / (float)maxHP;
+        CardPlacementSystem.Instance.textHP_Player.text = fame.ToString();
     }
 
     private void Die()

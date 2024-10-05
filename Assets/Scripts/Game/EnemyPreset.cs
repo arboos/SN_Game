@@ -59,6 +59,7 @@ public class EnemyPreset : MonoBehaviour
 	private void UpdateViewModels()
 	{
 		HPBar.fillAmount = HP / (float)MaxHP;
+		CardPlacementSystem.Instance.textHP_Enemy.text = HP.ToString();
 	}
 
 	private void Die()

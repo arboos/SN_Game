@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CardPlacementSystem : MonoBehaviour
@@ -28,6 +29,10 @@ public class CardPlacementSystem : MonoBehaviour
     
     [SerializeField] private CharacterDialog enemyDialog;
     [SerializeField] private float timeToWaitEnemy;
+    
+    
+    public TextMeshProUGUI textHP_Player;
+    public TextMeshProUGUI textHP_Enemy;
 
     
     //Decks
@@ -75,6 +80,8 @@ public class CardPlacementSystem : MonoBehaviour
         {
             TakeCard();
         }
+
+        textHP_Player.text = PlayerProperties.Instance.fame.ToString();
     }
     
     
