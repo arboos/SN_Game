@@ -24,34 +24,34 @@ public class TurnManager : MonoBehaviour
 				return "heal";
 			}
 		}
-		catch{}
+		catch { }
 		try
 		{
-			if (cardsField.cardsInDeck[buffId - 1].GetComponent<CardInfo>().CardType== 3
+			if (cardsField.cardsInDeck[buffId + 1].GetComponent<CardInfo>().CardType == 3
 				&& cardsField.cardsInDeck[buffId].GetComponent<CardInfo>().CardType == 3)
 			{
 				return "-defence";
 			}
 		}
-		catch{}
+		catch { }
 		try
 		{
-			if (cardsField.cardsInDeck[buffId - 1].GetComponent<CardInfo>().CardType + 1
-				== cardsField.cardsInDeck[buffId].GetComponent<CardInfo>().CardType)
+			if (cardsField.cardsInDeck[buffId - 1].GetComponent<CardInfo>().CardType == 3
+				&& cardsField.cardsInDeck[buffId].GetComponent<CardInfo>().CardType == 4)
 			{
-				return "+";
+				return "+damage";
 			}
 		}
-		catch{}
+		catch { }
 		try
 		{
-			if (cardsField.cardsInDeck[buffId + 1].GetComponent<CardInfo>().CardType + 1
-			== cardsField.cardsInDeck[buffId].GetComponent<CardInfo>().CardType)
+			if (cardsField.cardsInDeck[buffId + 1].GetComponent<CardInfo>().CardType == 3
+			&& cardsField.cardsInDeck[buffId].GetComponent<CardInfo>().CardType == 4)
 			{
-				return "+";
+				return "+damage";
 			}
 		}
-		catch{}
+		catch { }
 		return "";
 	}
 
@@ -70,13 +70,22 @@ public class TurnManager : MonoBehaviour
 		{
 			outputField.text = "Игрок:\n";
 			CardInfo card = cardObject.GetComponent<CardInfo>();
+			if (card.CardType == 3)
+			{
+				string combination = CheckCombination(cards.IndexOf(cardObject));
+				if (combination == "-defence")
+				{
+					ResistancePenetration += card.DamageResistance;
+					continue;
+				}
+				Damage += card.Damage;
+			}
 			if (card.CardType == 2 || card.CardType == 4)
 			{
 				string combination = CheckCombination(cards.IndexOf(cardObject));
-				if (combination == "+")
+				if (combination == "+damage")
 				{
 					DamageBuff += card.Damage;
-					DamageResistanceBuff += card.DamageResistance;
 				}
 				else if (combination == "heal")
 				{
@@ -88,7 +97,7 @@ public class TurnManager : MonoBehaviour
 				}
 				continue;
 			}
-			Damage += card.Damage;
+
 			if (card.DamageResistance != 0 && card.CardType == 1)
 			{
 				DamageResistance += (card.DamageResistance / 100f);
@@ -97,7 +106,7 @@ public class TurnManager : MonoBehaviour
 		}
 		PlayerProperties.Instance.SetResistance(DamageResistance + DamageResistanceBuff);
 		PlayerProperties.Instance.Heal(Heal);
-		enemy.TakeDamage(Damage + DamageBuff,ResistancePenetration);
+		enemy.TakeDamage(Damage + DamageBuff, ResistancePenetration);
 		yield return new WaitForSeconds(compilationSpeed);
 		CardPlacementSystem.Instance.EndTurn();
 	}
@@ -126,16 +135,16 @@ public class TurnManager : MonoBehaviour
 				if (combination == "-defence")
 				{
 					ResistancePenetration += card.DamageResistance;
+					continue;
 				}
-				continue;
+				Damage += card.Damage;
 			}
 			if (card.CardType == 2 || card.CardType == 4)
 			{
 				string combination = CheckCombination(cards.IndexOf(cardObject));
-				if (combination == "+")
+				if (combination == "+damage")
 				{
 					DamageBuff += card.Damage;
-					DamageResistanceBuff += card.DamageResistance;
 				}
 				else if (combination == "heal")
 				{
@@ -147,8 +156,8 @@ public class TurnManager : MonoBehaviour
 				}
 				continue;
 			}
-			Damage += card.Damage;
-			if (card.DamageResistance != 0)
+
+			if (card.DamageResistance != 0 && card.CardType == 1)
 			{
 				DamageResistance += (card.DamageResistance / 100f);
 			}
@@ -164,7 +173,7 @@ public class TurnManager : MonoBehaviour
 		}
 		if (ResistancePenetration > 0)
 		{
-			outputField.text += "Снижение защиты: " + ResistancePenetration.ToString();
+			outputField.text += "Снижение защиты: " + ResistancePenetration.ToString() + "\n";
 		}
 		if (DamageResistance != 1)
 		{

@@ -29,6 +29,7 @@ public class PlayerProperties : MonoBehaviour
 	public void Start()
 	{
         StartCombat();
+		UpdateViewModels();
 	}
 
 	public void StartCombat()

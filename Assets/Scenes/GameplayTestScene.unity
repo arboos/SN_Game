@@ -2801,25 +2801,25 @@ MonoBehaviour:
   currentTurnIndex: 0
   presets:
   - cards:
-    - {fileID: 5949480487649978953, guid: c3c39129971ea8c40ad250cd87a91888, type: 3}
-    - {fileID: 6319421690721505299, guid: 9dfb5a90a5d769849a87a9fdc2a3bde7, type: 3}
-    - {fileID: 1774450022247767726, guid: fa5d52c973678744fa91483c385fc2ad, type: 3}
+    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
+    - {fileID: 5949480487649978953, guid: bbae016ec2057ba43a0da7b8c26e9950, type: 3}
+    - {fileID: 5949480487649978953, guid: 2723735e47c16ee4c9a40d137ce445a3, type: 3}
   - cards:
-    - {fileID: 4008562826111921613, guid: ae539a4cd2fc43841a986b074d8e0691, type: 3}
-    - {fileID: 6319421690721505299, guid: 9dfb5a90a5d769849a87a9fdc2a3bde7, type: 3}
-    - {fileID: 4997787082985250935, guid: 20851985bee631b4a963acb4a91fee04, type: 3}
+    - {fileID: 5949480487649978953, guid: d5e08edc24847e040bdd034fe2cca138, type: 3}
+    - {fileID: 5949480487649978953, guid: d5e08edc24847e040bdd034fe2cca138, type: 3}
+    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
   - cards:
-    - {fileID: 5949480487649978953, guid: c3c39129971ea8c40ad250cd87a91888, type: 3}
-    - {fileID: 3574347157355482819, guid: 3bbd92aea800e69408aef696b7842a6d, type: 3}
-    - {fileID: 6319421690721505299, guid: 9dfb5a90a5d769849a87a9fdc2a3bde7, type: 3}
+    - {fileID: 5949480487649978953, guid: 2723735e47c16ee4c9a40d137ce445a3, type: 3}
+    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
+    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
   - cards:
-    - {fileID: 4997787082985250935, guid: bb937f24940458d468dad6cc74d89838, type: 3}
-    - {fileID: 7540656179256816167, guid: 2160f8d710eb82140a4006b6ea54f220, type: 3}
-    - {fileID: 4008562826111921613, guid: ae539a4cd2fc43841a986b074d8e0691, type: 3}
+    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
+    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
+    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
   playedCards: []
   player: {fileID: 1453342270}
-  HP: 100
-  MaxHP: 100
+  HP: 20
+  MaxHP: 20
   DamageResistance: 0
   HPBar: {fileID: 487264367}
   winReward: 0
@@ -4149,10 +4149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03eb81e34d4f4440bfebe7fcb23f0f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
+  maxHP: 0
   damageResistance: 0
   currentDeckBuild: []
-  fame: 50
+  fame: 10
   hpBar: {fileID: 882716542}
 --- !u!4 &1453342271
 Transform:
@@ -4770,13 +4770,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckCapacity: 0
   cardsInDeck:
-  - {fileID: 5949480487649978953, guid: c3c39129971ea8c40ad250cd87a91888, type: 3}
-  - {fileID: 6319421690721505299, guid: 9dfb5a90a5d769849a87a9fdc2a3bde7, type: 3}
-  - {fileID: 4008562826111921613, guid: ae539a4cd2fc43841a986b074d8e0691, type: 3}
-  - {fileID: 7540656179256816167, guid: 2160f8d710eb82140a4006b6ea54f220, type: 3}
-  - {fileID: 1774450022247767726, guid: fa5d52c973678744fa91483c385fc2ad, type: 3}
-  - {fileID: 3574347157355482819, guid: 3bbd92aea800e69408aef696b7842a6d, type: 3}
-  - {fileID: 5850416003306657991, guid: 298d18a54f3450549b89a449087fd3fe, type: 3}
+  - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
+  - {fileID: 5949480487649978953, guid: 17956a5759dddc148946b248f1a0a641, type: 3}
+  - {fileID: 5949480487649978953, guid: aa98757ebcaeb2141ae8fce45244e4bd, type: 3}
+  - {fileID: 5949480487649978953, guid: 1954a10eb57f96a489c03f23130d868d, type: 3}
+  - {fileID: 5949480487649978953, guid: d5e08edc24847e040bdd034fe2cca138, type: 3}
+  - {fileID: 5949480487649978953, guid: 2723735e47c16ee4c9a40d137ce445a3, type: 3}
+  - {fileID: 5949480487649978953, guid: 2a4d58be6b073b544930e7c94c51637b, type: 3}
+  - {fileID: 5949480487649978953, guid: e2b1d9ec87e7e9e4c9821c618439fff8, type: 3}
+  - {fileID: 5949480487649978953, guid: 33e016a3f2e6825408a9fe376635203c, type: 3}
+  - {fileID: 5949480487649978953, guid: bbae016ec2057ba43a0da7b8c26e9950, type: 3}
   mainDeck: 1
 --- !u!114 &1726593871
 MonoBehaviour:
@@ -4922,14 +4925,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allCards:
-  - {fileID: 5949480487649978953, guid: c3c39129971ea8c40ad250cd87a91888, type: 3}
-  - {fileID: 6319421690721505299, guid: 9dfb5a90a5d769849a87a9fdc2a3bde7, type: 3}
-  - {fileID: 4008562826111921613, guid: ae539a4cd2fc43841a986b074d8e0691, type: 3}
-  - {fileID: 7540656179256816167, guid: 2160f8d710eb82140a4006b6ea54f220, type: 3}
-  - {fileID: 1774450022247767726, guid: fa5d52c973678744fa91483c385fc2ad, type: 3}
-  - {fileID: 3574347157355482819, guid: 3bbd92aea800e69408aef696b7842a6d, type: 3}
-  - {fileID: 5850416003306657991, guid: 298d18a54f3450549b89a449087fd3fe, type: 3}
-  - {fileID: 4997787082985250935, guid: af043c5ae9ad6c14c929bd2ac293044a, type: 3}
+  - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
+  - {fileID: 5949480487649978953, guid: 17956a5759dddc148946b248f1a0a641, type: 3}
+  - {fileID: 5949480487649978953, guid: aa98757ebcaeb2141ae8fce45244e4bd, type: 3}
+  - {fileID: 5949480487649978953, guid: 1954a10eb57f96a489c03f23130d868d, type: 3}
+  - {fileID: 5949480487649978953, guid: d5e08edc24847e040bdd034fe2cca138, type: 3}
+  - {fileID: 5949480487649978953, guid: 2723735e47c16ee4c9a40d137ce445a3, type: 3}
+  - {fileID: 5949480487649978953, guid: 2a4d58be6b073b544930e7c94c51637b, type: 3}
+  - {fileID: 5949480487649978953, guid: e2b1d9ec87e7e9e4c9821c618439fff8, type: 3}
+  - {fileID: 5949480487649978953, guid: 33e016a3f2e6825408a9fe376635203c, type: 3}
+  - {fileID: 5949480487649978953, guid: bbae016ec2057ba43a0da7b8c26e9950, type: 3}
   lockedCards: []
   playerDeck: {fileID: 1726593870}
   playerHandDeck: {fileID: 0}
@@ -5726,8 +5731,8 @@ MonoBehaviour:
   canvas: {fileID: 2049008279}
   maxHandCapacity: 8
   maxPlayboardCapacity: 8
-  cardTakeAmount: 2
-  cardTakeStart: 6
+  cardTakeAmount: 1
+  cardTakeStart: 5
   turnManager: {fileID: 1110352147}
   playerPhrases:
   - "\u043F\u0440\u043E\u0432\u0435\u0440\u043A\u0430 1"
