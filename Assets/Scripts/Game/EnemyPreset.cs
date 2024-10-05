@@ -15,7 +15,7 @@ public class EnemyPreset : MonoBehaviour
 
 	public int HP;
 	public int MaxHP;
-	public float DamageResistance;
+	public int DamageResistance;
 
 	[SerializeField] private Image HPBar;
 	[SerializeField] private int winReward;
@@ -37,7 +37,7 @@ public class EnemyPreset : MonoBehaviour
 		public GameObject[] cards;
 	}
 
-	public void TakeDamage(int damage,float resistancePenetration)
+	public void TakeDamage(int damage,int resistancePenetration)
 	{
 		if (damage > 0)
 		{
@@ -47,7 +47,8 @@ public class EnemyPreset : MonoBehaviour
 		if (DamageResistance != 0)
 		{
 			DamageResistance = Mathf.Clamp(DamageResistance - resistancePenetration,-100,100);
-			HP -= (int)(damage * DamageResistance);
+			HP -= Mathf.Clamp(damage - DamageResistance,0,1000);
+			UpdateViewModels();
 			if (HP - (int)(damage * DamageResistance) <= 0)
 			{
 				HP = 0;
@@ -57,6 +58,7 @@ public class EnemyPreset : MonoBehaviour
 				Die();
 				return;
 			}
+			return;
 		}
 		if (HP - damage <= 0)
 		{
@@ -82,6 +84,7 @@ public class EnemyPreset : MonoBehaviour
 		CardPlacementSystem.Instance.shop.Open();
 		MenuManager.Instance.winScreen.SetActive(true);
 		PlayerProperties.Instance.fame += winReward;
+		PlayerProperties.Instance.audioSource.PlayOneShot(PlayerProperties.Instance.win);
 		StopAllCoroutines();
 		transform.parent.gameObject.SetActive(false);
 	}
@@ -93,7 +96,7 @@ public class EnemyPreset : MonoBehaviour
 		Turn turn = presets[currentTurnIndex];
 
 		int damage = 0;
-		float damageResistance = 0;
+		int damageResistance = 0;
 		float heal = 0;
 
 		yield return new WaitForSeconds(1f);
@@ -105,7 +108,7 @@ public class EnemyPreset : MonoBehaviour
 			damage += card.Damage;
 			if (card.DamageResistance != 0)
 			{
-				damageResistance += (card.DamageResistance / 100f);
+				damageResistance += card.DamageResistance;
 			}
 			honestReaction.PlayNeutral();
 			heal += card.Heal;
@@ -117,7 +120,7 @@ public class EnemyPreset : MonoBehaviour
 			honestReaction.PlayNeutral();
 			if (damageResistance != 1)
 			{
-				outputField.text += "Damage resistance: " + ((damageResistance) * 100).ToString() + "%\n";
+				outputField.text += "Damage resistance: " + (damageResistance).ToString() + "\n";
 			}
 			honestReaction.PlayNeutral();
 			if (heal > 0)
@@ -130,7 +133,7 @@ public class EnemyPreset : MonoBehaviour
 		}
 
 		PlayerProperties.Instance.TakeDamage(damage);
-		DamageResistance = 1 - damageResistance;
+		DamageResistance = damageResistance;
 		currentTurnIndex++;
 
 		int count = CardPlacementSystem.Instance.playboard.transform.childCount;
