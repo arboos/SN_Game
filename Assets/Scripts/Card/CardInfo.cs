@@ -10,4 +10,5 @@ public class CardInfo : MonoBehaviour
     public int Heal;
 
     public int Price;
+    public int CardType;//1 - attack, 2 - attack buff, 3 - defence, 4 - defence buff
 }
