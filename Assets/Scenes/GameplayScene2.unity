@@ -3265,16 +3265,20 @@ MonoBehaviour:
   currentTurnIndex: 0
   presets:
   - cards:
-    - {fileID: 5949480487649978953, guid: b967770c87631ca46b253e3c07c3725e, type: 3}
+    - {fileID: 5949480487649978953, guid: 9dd314bc1fb8211499fb54b71a5341bd, type: 3}
+    - {fileID: 5949480487649978953, guid: 947b8568646a0f548931165323980bd8, type: 3}
   - cards:
-    - {fileID: 5949480487649978953, guid: d783f0067b91e844080ff1befa94244d, type: 3}
-    - {fileID: 5949480487649978953, guid: a8d47f71f13d9004a8a9b50110ea2474, type: 3}
-  - cards:
-    - {fileID: 5949480487649978953, guid: be7b0116a4b0d724c8e034d5f8bf357f, type: 3}
-    - {fileID: 5949480487649978953, guid: c01069374a4026340a1f48c15144a8a6, type: 3}
-  - cards:
-    - {fileID: 5949480487649978953, guid: 593309e81834ef342a726d62efd43c09, type: 3}
+    - {fileID: 5949480487649978953, guid: f739807b52c504647b3cdfc8ab8594af, type: 3}
     - {fileID: 5949480487649978953, guid: 06b3476575fedc44483530c11f7c9f58, type: 3}
+  - cards:
+    - {fileID: 5949480487649978953, guid: 1a7dc35153082534da7a304dfc9011f3, type: 3}
+    - {fileID: 5949480487649978953, guid: 3eecbfa493b9a5a41bf30d57a9c56413, type: 3}
+    - {fileID: 5949480487649978953, guid: be7b0116a4b0d724c8e034d5f8bf357f, type: 3}
+  - cards:
+    - {fileID: 5949480487649978953, guid: f739807b52c504647b3cdfc8ab8594af, type: 3}
+    - {fileID: 5949480487649978953, guid: 947b8568646a0f548931165323980bd8, type: 3}
+    - {fileID: 5949480487649978953, guid: b967770c87631ca46b253e3c07c3725e, type: 3}
+    - {fileID: 5949480487649978953, guid: c01069374a4026340a1f48c15144a8a6, type: 3}
   playedCards: []
   HP: 15
   MaxHP: 15
