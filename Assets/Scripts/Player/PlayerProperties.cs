@@ -119,5 +119,6 @@ public class PlayerProperties : MonoBehaviour
 		
 		audioSource.PlayOneShot(defeat);
 		MenuManager.Instance.looseScreen.SetActive(true);
+		fame = 10;
 	}
 }

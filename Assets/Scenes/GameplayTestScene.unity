@@ -6229,10 +6229,14 @@ MonoBehaviour:
     \u0443\u0447\u0438\u0442\u0435\u043B\u044C!"
   enemyPhrases:
   - "\u0421\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0438 \u0443\u0447\u0438\u0442\u0435\u0441\u044C!"
-  playerPhrasesLose: []
-  timeToWaitPlayerLose: 0
-  enemyPhrasesLose: []
-  timeToWaitEnemyLose: 0
+  playerPhrasesLose:
+  - (((((((((((((((((
+  enemyPhrasesLose:
+  - "\u0410\u0425\u0410\u0425\u0410\u0425\u0410\u0425\u0410\u0425\u0410\u0425\u0410\u0410"
+  playerPhrasesWin:
+  - "\u0410\u0425\u0425\u0410\u0425\u0410\u0425\u0410\u0425\u0410\u0425\u0410\u0425\u0410\u0410\u0425"
+  enemyPhrasesWin:
+  - ((((((((((((((((((((((((
   playerDialog: {fileID: 4935590246845627811}
   enemyDialog: {fileID: 1701917008}
   deckTransform: {fileID: 656837084}

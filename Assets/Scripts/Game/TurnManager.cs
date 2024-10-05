@@ -9,7 +9,7 @@ public class TurnManager : MonoBehaviour
 	//public PlayerProperties player;
 	[SerializeField] private EnemyPreset enemy;
 	[SerializeField] private CardDeck cardsField;
-	[SerializeField] private TextMeshProUGUI outputField;
+	public TextMeshProUGUI outputField;
 	[Header("Visual Settings")]
 	[SerializeField] private float compilationSpeed;
 

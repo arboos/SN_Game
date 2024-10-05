@@ -77,13 +77,18 @@ public class EnemyPreset : MonoBehaviour
 	public void UpdateViewModels()
 	{
 		//HPBar.fillAmount = HP / (float)MaxHP;
-		CardPlacementSystem.Instance.textHP_Enemy.text = "�����: "+ HP.ToString() +"\n������: "+DamageResistance;
+		CardPlacementSystem.Instance.textHP_Enemy.text = "Слава: "+ HP.ToString() +"\nЗащита: "+DamageResistance;
 	}
 
 	private async void Die()
 	{
+		StopAllCoroutines();
+		isDead = true;
 		await UniTask.Delay(TimeSpan.FromSeconds(2f));
 		
+		outputField.gameObject.SetActive(false);
+		GameObject.Find("TurnManager").GetComponent<TurnManager>().outputField.gameObject.SetActive(false);
+
 		CardPlacementSystem.Instance.hand.SetActive(false);
 		CardPlacementSystem.Instance.playboard.SetActive(false);
 		
@@ -102,7 +107,7 @@ public class EnemyPreset : MonoBehaviour
 		CardPlacementSystem.Instance.shop.Open();
 		MenuManager.Instance.winScreen.SetActive(true);
 		PlayerProperties.Instance.audioSource.PlayOneShot(PlayerProperties.Instance.win);
-		StopAllCoroutines();
+		
 		transform.parent.gameObject.SetActive(false);
 	}
 
@@ -115,14 +120,15 @@ public class EnemyPreset : MonoBehaviour
 		int damage = 0;
 		int damageResistance = 0;
 		float heal = 0;
-
+		if (isDead) { yield return null; }
 		yield return new WaitForSeconds(1f);
 		foreach (var cardObject in turn.cards)
 		{
+			if (isDead) { break; }
 			var cardInstance = Instantiate(cardObject, CardPlacementSystem.Instance.playboard.transform);
 			cardInstance.transform.GetChild(0).gameObject.SetActive(true);
 			playedCards.Add(cardInstance);
-			outputField.text = "����:\n";
+			outputField.text = "Враг:\n";
 			CardInfo card = cardObject.GetComponent<CardInfo>();
 			damage += card.Damage;
 			if (card.DamageResistance != 0)
@@ -133,18 +139,18 @@ public class EnemyPreset : MonoBehaviour
 			//heal += card.Heal;
 			if (damage > 0)
 			{
-				outputField.text += "����: " + damage.ToString() + "\n";
+				outputField.text += "Урон: " + damage.ToString() + "\n";
 				honestReaction.PlayHappy();
 			}
 			honestReaction.PlayNeutral();
 			if (damageResistance != 1)
 			{
-				outputField.text += "������: " + (damageResistance).ToString() + "\n";
+				outputField.text += "Защита: " + (damageResistance).ToString() + "\n";
 			}
 			honestReaction.PlayNeutral();
 			if (heal > 0)
 			{
-				outputField.text += "�������: " + heal.ToString();
+				outputField.text += "Лечение: " + heal.ToString();
 				honestReaction.PlayHappy();
 			}
 			honestReaction.PlayNeutral();

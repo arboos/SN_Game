@@ -156,6 +156,7 @@ public class CardPlacementSystem : MonoBehaviour
         enemyPreset.outputField.text = "";
         GiveCardsToPlayer(cardTakeAmount);
         turnBlocker.SetActive(false);
+        PlayerProperties.Instance.SetResistance(0);
     }
     
     public async void GiveCardsToPlayer(int count)
