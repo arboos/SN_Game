@@ -27,6 +27,7 @@ public class EnemyPreset : MonoBehaviour
 
 	private void Start()
 	{
+		winReward = HP;
 		UpdateViewModels();
 	}
 
@@ -80,10 +81,10 @@ public class EnemyPreset : MonoBehaviour
 
 	private void Die()
 	{
+		PlayerProperties.Instance.fame += winReward;
 		CardPlacementSystem.Instance.shop.gameObject.SetActive(true);
 		CardPlacementSystem.Instance.shop.Open();
 		MenuManager.Instance.winScreen.SetActive(true);
-		PlayerProperties.Instance.fame += winReward;
 		PlayerProperties.Instance.audioSource.PlayOneShot(PlayerProperties.Instance.win);
 		StopAllCoroutines();
 		transform.parent.gameObject.SetActive(false);
