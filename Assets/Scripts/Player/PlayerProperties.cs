@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,27 +26,37 @@ public class PlayerProperties : MonoBehaviour
 		}
 	}
 
+	public void Start()
+	{
+        StartCombat();
+	}
+
+	public void StartCombat()
+    {
+        maxHP = fame;
+    }
+
 	public void TakeDamage(int damage)
     {
-        if (HP - (int)(damage * damageResistance) <= 0)
+        if (fame - (int)(damage * damageResistance) <= 0)
         {
             Die();
             return;
         }
         if (damageResistance != 0)
         {
-            HP -= (int)(damage * damageResistance);
+            fame -= (int)(damage * damageResistance);
         }
         else
         {
-            HP -= damage;
+            fame -= damage;
         }
         UpdateViewModels();
     }
 
     public void Heal(int heal)
     {
-        HP = Mathf.Clamp(HP + heal,0,maxHP);
+        fame = Mathf.Clamp(fame + heal,0,maxHP);
         UpdateViewModels();
     }
 
@@ -58,7 +67,7 @@ public class PlayerProperties : MonoBehaviour
 
     private void UpdateViewModels()
     {
-        hpBar.fillAmount = HP / (float)maxHP;
+        hpBar.fillAmount = fame / (float)maxHP;
     }
 
     private void Die()
