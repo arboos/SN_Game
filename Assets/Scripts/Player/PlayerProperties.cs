@@ -12,6 +12,7 @@ public class PlayerProperties : MonoBehaviour
     public int fame;
     [Header("UI/UX")]
     [SerializeField] private Image hpBar;
+    [SerializeField] private HonestReactions honestReaction;
 
 	private void Awake()
 	{
