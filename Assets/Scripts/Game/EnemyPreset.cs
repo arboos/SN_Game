@@ -23,7 +23,12 @@ public class EnemyPreset : MonoBehaviour
 	[SerializeField] private GameObject nextTurn;
 
 	public bool isDead = false;
-	
+
+	private void Start()
+	{
+		UpdateViewModels();
+	}
+
 
 	[Serializable]
 	public struct Turn
@@ -35,7 +40,7 @@ public class EnemyPreset : MonoBehaviour
 	{
 		if (DamageResistance != 0)
 		{
-			DamageResistance = Mathf.Clamp(DamageResistance - resistancePenetration,0,100);
+			DamageResistance = Mathf.Clamp(DamageResistance - resistancePenetration,-100,100);
 			HP -= (int)(damage * DamageResistance);
 			if (HP - (int)(damage * DamageResistance) <= 0)
 			{
