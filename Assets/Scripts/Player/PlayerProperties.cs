@@ -68,7 +68,7 @@ public class PlayerProperties : MonoBehaviour
 		}
 		if (damageResistance != 0)
 		{
-			fame -= damage - damageResistance;
+			fame -= Mathf.Clamp(damage - damageResistance,0,1000);
 		}
 		else
 		{

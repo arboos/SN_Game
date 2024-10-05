@@ -93,7 +93,7 @@ public class TurnManager : MonoBehaviour
 				string combination = CheckCombination(cards.IndexOf(cardObject));
 				if (combination == "-defence")
 				{
-					ResistancePenetration += card.DamageResistance;
+					ResistancePenetration += card.DamagePenetration;
 					continue;
 				}
 				Damage += card.Damage;
@@ -115,10 +115,6 @@ public class TurnManager : MonoBehaviour
 				{
 					Heal += card.Heal;
 					PlayerProperties.Instance.honestReaction.PlayHappy();
-				}
-				else if (combination == "-defence")
-				{
-					ResistancePenetration += card.DamageResistance;
 				}
 				continue;
 			}
@@ -160,7 +156,8 @@ public class TurnManager : MonoBehaviour
 				string combination = CheckCombination(cards.IndexOf(cardObject));
 				if (combination == "-defence")
 				{
-					ResistancePenetration += card.DamageResistance;
+					Debug.Log("-defence!");
+					ResistancePenetration += card.DamagePenetration;
 					continue;
 				}
 				Damage += card.Damage;
@@ -180,15 +177,11 @@ public class TurnManager : MonoBehaviour
 				{
 					Heal += card.Heal;
 				}
-				else if (combination == "-defence")
-				{
-					ResistancePenetration += card.DamageResistance;
-				}
 				continue;
 			}
 			if (card.DamageResistance != 0 && card.CardType == 1)
 			{
-				DamageResistance += (card.DamageResistance / 100f);
+				DamageResistance += card.DamageResistance;
 			}
 		}
 		if (Damage > 0)
@@ -206,7 +199,7 @@ public class TurnManager : MonoBehaviour
 		}
 		if (DamageResistance != 1)
 		{
-			outputField.text += "Защита: " + ((DamageResistance) * 100).ToString();
+			outputField.text += "Защита: " + DamageResistance.ToString();
 			if (DamageResistanceBuff != 0)
 			{
 				outputField.text += " +" + DamageResistanceBuff;

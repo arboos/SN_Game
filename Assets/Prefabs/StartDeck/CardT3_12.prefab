@@ -303,7 +303,8 @@ MonoBehaviour:
   Name: "\u0431\u0435\u0436\u0438\u0442 \u0431\u044B\u0441\u0442\u0440\u0435\u0435
     \u0432\u0435\u0442\u0440\u0430"
   Damage: 1
-  DamageResistance: 1
+  DamageResistance: 0
+  DamagePenetration: 1
   Heal: 0
   Price: 0
   CardType: 3
