@@ -27,10 +27,10 @@ public class CardPlacementSystem : MonoBehaviour
     [SerializeField] private List<string> playerPhrases;
     [SerializeField] private List<string> enemyPhrases;
 
-    [SerializeField] private CharacterDialog playerDialog;
+    public CharacterDialog playerDialog;
     [SerializeField] private float timeToWaitPlayer;
     
-    [SerializeField] private CharacterDialog enemyDialog;
+    public CharacterDialog enemyDialog;
     [SerializeField] private float timeToWaitEnemy;
 
     [SerializeField] private Transform deckTransform;
@@ -102,20 +102,10 @@ public class CardPlacementSystem : MonoBehaviour
         float xPos = 90f;
         Vector3 movePos = new Vector3();
 
-        if (handDeck.cardsInDeck.Count > 0)
-        {
-            movePos = handDeck.cardsInDeck[handDeck.cardsInDeck.Count - 1].transform.position;
-            //+ hand.GetComponent<RectTransform>().localPosition + new Vector3(xPos, 0, 0);
-        }
-        else
-        { 
-            movePos = hand.transform.position;
-        }
         
+        movePos = hand.transform.position + new Vector3((handDeck.cardsInDeck.Count) * 100f, 0, 0);
         
-        print(hand.GetComponent<GridLayoutGroup>().cellSize.x);
-        print(hand.GetComponent<GridLayoutGroup>().spacing.x);
-        print(xPos + "Xpos");
+        print(movePos);
         
         await MoveCard(card, movePos);
         
