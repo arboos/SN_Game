@@ -29,6 +29,7 @@ public class PlayerProperties : MonoBehaviour
 		SceneManager.sceneLoaded += (Scene scene, LoadSceneMode mode) =>
 		{
 			honestReaction = GameObject.Find("HonestReaction").GetComponent<HonestReactions>();
+			UpdateViewModels();
 		};
 
 		if (Instance == null)

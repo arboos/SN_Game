@@ -11,7 +11,7 @@ public class EnemyPreset : MonoBehaviour
 	public int currentTurnIndex;
 	public List<Turn> presets;
 	public List<GameObject> playedCards;
-	[SerializeField] private PlayerProperties player;
+	//[SerializeField] private PlayerProperties player;
 
 	public int HP;
 	public int MaxHP;
@@ -49,7 +49,7 @@ public class EnemyPreset : MonoBehaviour
 			DamageResistance = Mathf.Clamp(DamageResistance - resistancePenetration,-100,100);
 			HP -= Mathf.Clamp(damage - DamageResistance,0,1000);
 			UpdateViewModels();
-			if (HP - damage - DamageResistance <= 0)
+			if (HP - Mathf.Clamp(damage - DamageResistance,0,1000) <= 0)
 			{
 				HP = 0;
 				UpdateViewModels();
@@ -111,7 +111,7 @@ public class EnemyPreset : MonoBehaviour
 				damageResistance += card.DamageResistance;
 			}
 			honestReaction.PlayNeutral();
-			heal += card.Heal;
+			//heal += card.Heal;
 			if (damage > 0)
 			{
 				outputField.text += "Урон: " + damage.ToString() + "\n";

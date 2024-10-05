@@ -32,8 +32,9 @@ public class Shop : MonoBehaviour
             var itemSpawned = Instantiate(buttonPrefab, cardsPool);
             itemSpawned.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
                 item.GetComponent<CardInfo>().Price.ToString();
-            
-            itemSpawned.AddComponent<TextAnim>();
+			itemSpawned.transform.GetChild(1).GetComponent<Image>().sprite =
+				item.transform.GetChild(1).GetComponent<Image>().sprite;
+			itemSpawned.AddComponent<TextAnim>();
             itemSpawned.GetComponent<Image>().sprite = item.GetComponent<Image>().sprite;
             itemSpawned.GetComponent<Button>().onClick.AddListener(delegate
             {

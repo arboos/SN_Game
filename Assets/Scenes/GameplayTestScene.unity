@@ -482,7 +482,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &213992286
@@ -3108,7 +3108,6 @@ MonoBehaviour:
     - {fileID: 5949480487649978953, guid: 593309e81834ef342a726d62efd43c09, type: 3}
     - {fileID: 5949480487649978953, guid: 06b3476575fedc44483530c11f7c9f58, type: 3}
   playedCards: []
-  player: {fileID: 1453342270}
   HP: 1
   MaxHP: 20
   DamageResistance: 0
@@ -5456,7 +5455,22 @@ MonoBehaviour:
   - {fileID: 5949480487649978953, guid: 524379592faf03f4f8798a3a20a5fbe2, type: 3}
   - {fileID: 5949480487649978953, guid: a8d47f71f13d9004a8a9b50110ea2474, type: 3}
   - {fileID: 5949480487649978953, guid: c01069374a4026340a1f48c15144a8a6, type: 3}
-  lockedCards: []
+  lockedCards:
+  - {fileID: 5949480487649978953, guid: b7d60457324802540896ecbbf20ff506, type: 3}
+  - {fileID: 5949480487649978953, guid: 4c516b395da9d1246b2d993e68d11060, type: 3}
+  - {fileID: 5949480487649978953, guid: c17a6713623e2474b93c8cbe3f683327, type: 3}
+  - {fileID: 5949480487649978953, guid: 9dd314bc1fb8211499fb54b71a5341bd, type: 3}
+  - {fileID: 5949480487649978953, guid: 947b8568646a0f548931165323980bd8, type: 3}
+  - {fileID: 5949480487649978953, guid: e70a1d50197a34c4fbf0691658bd5988, type: 3}
+  - {fileID: 5949480487649978953, guid: 0088667bae8d9804abd24ecff58fbed9, type: 3}
+  - {fileID: 5949480487649978953, guid: 4ff644e0a543d4a429bd96e030ea2106, type: 3}
+  - {fileID: 5949480487649978953, guid: be7b0116a4b0d724c8e034d5f8bf357f, type: 3}
+  - {fileID: 5949480487649978953, guid: dc361fef98c042141a3a10f20deddfea, type: 3}
+  - {fileID: 5949480487649978953, guid: 1a7dc35153082534da7a304dfc9011f3, type: 3}
+  - {fileID: 5949480487649978953, guid: 96b4cd3a8c6737e469c8b4f3d46abb20, type: 3}
+  - {fileID: 5949480487649978953, guid: 3eecbfa493b9a5a41bf30d57a9c56413, type: 3}
+  - {fileID: 5949480487649978953, guid: 1fe9ed45b1105ce4f963c042e5426dd0, type: 3}
+  - {fileID: 5949480487649978953, guid: 775c1ab4d8432ed46be7b504881ccc61, type: 3}
   playerDeck: {fileID: 1726593870}
   playerHandDeck: {fileID: 0}
 --- !u!1 &1785260277
@@ -7990,7 +8004,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!224 &5153026203369434706
