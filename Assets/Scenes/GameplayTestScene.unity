@@ -6365,8 +6365,14 @@ MonoBehaviour:
   winScreen: {fileID: 676354488}
   looseScreen: {fileID: 1501838009}
   endgameScreen: {fileID: 0}
-  audioMixer: {fileID: 0}
-  audioParameters: []
+  audioMixer: {fileID: 24100000, guid: 087d5e8d6078c394580930ee1129cd42, type: 2}
+  audioParameters:
+  - groupName: MasterVolume
+    slider: {fileID: 3766307172565094392}
+  - groupName: MusicVolume
+    slider: {fileID: 3319278594307440015}
+  - groupName: SFXVolume
+    slider: {fileID: 4026760043994641515}
 --- !u!1 &2050763104
 GameObject:
   m_ObjectHideFlags: 0
@@ -6473,7 +6479,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7337,7 +7343,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2049008285}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ChangeAudioVolume
         m_Mode: 3
@@ -7520,7 +7526,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2049008285}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ChangeAudioVolume
         m_Mode: 3
@@ -7601,7 +7607,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2049008285}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
         m_MethodName: ChangeAudioVolume
         m_Mode: 3
