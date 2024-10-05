@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 66, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2042589564494506759
 CanvasRenderer:
@@ -93,6 +93,8 @@ MonoBehaviour:
   Damage: 5
   DamageResistance: 5
   Heal: 5
+  Price: 0
+  CardType: 0
 --- !u!114 &8040456618209215539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentParent: {fileID: 0}
+  namefield: {fileID: 0}
   placementSystem: {fileID: 0}
   isPickedUp: 0
   currentContainer: {fileID: 0}
