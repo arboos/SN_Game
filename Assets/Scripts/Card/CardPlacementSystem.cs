@@ -17,7 +17,18 @@ public class CardPlacementSystem : MonoBehaviour
     [SerializeField] private int maxHandCapacity;//�������� ���� � ����
     [SerializeField] private int maxPlayboardCapacity; //�������� ���� �� ������� ����
     [SerializeField] private int cardTakeAmount;//���������� ���� ���������� � ������ ������� ����
+    [SerializeField] private int cardTakeStart;//���������� ���� ���������� � ������ ������� ����
     [SerializeField] private TurnManager turnManager;
+
+    [SerializeField] private List<string> playerPhrases;
+    [SerializeField] private List<string> enemyPhrases;
+
+    [SerializeField] private CharacterDialog playerDialog;
+    [SerializeField] private float timeToWaitPlayer;
+    
+    [SerializeField] private CharacterDialog enemyDialog;
+    [SerializeField] private float timeToWaitEnemy;
+
     
     //Decks
     public CardDeck deck;
@@ -46,8 +57,27 @@ public class CardPlacementSystem : MonoBehaviour
     {
         playboardDeck = playboard.GetComponent<CardDeck>();
         handDeck = hand.GetComponent<CardDeck>();
+
+        StartCoroutine(StartGame());
     }
 
+    public IEnumerator StartGame()
+    {
+        playerDialog.StartText(playerPhrases);
+        yield return timeToWaitPlayer;
+        
+        enemyDialog.StartText(playerPhrases);
+        yield return timeToWaitEnemy;
+        
+        turnBlocker.SetActive(false);
+
+        for (int i = 0; i < cardTakeStart; i++)
+        {
+            TakeCard();
+        }
+    }
+    
+    
     public void TakeCard()
     {
         GameObject cardPrefab = deck.TakeUpperCard();

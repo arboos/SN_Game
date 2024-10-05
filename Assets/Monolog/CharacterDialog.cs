@@ -33,9 +33,10 @@ public class CharacterDialog : MonoBehaviour
             foreach (var letter in phrase)
             {
                 dialogText.text += letter.ToString();
-                if(alignmentLeft) dialogPanelRectTransform.position = new Vector3(dialogPanelRectTransform.rect.width/2f, 
+                if(alignmentLeft) dialogPanelRectTransform.position = new Vector3(dialogPanelRectTransform.rect.width/2, 
                     dialogPanelRectTransform.position.y, dialogPanelRectTransform.position.z);
                 yield return new WaitForSeconds(0.1f);
+                
             }
             yield return new WaitForSeconds(0.5f);
         }
