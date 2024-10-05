@@ -140,7 +140,7 @@ public class EnemyPreset : MonoBehaviour
 			Vector3 movePos = new Vector3();
 
         
-			movePos = CardPlacementSystem.Instance.playboard.transform.position + new Vector3((CardPlacementSystem.Instance.playboardDeck.cardsInDeck.Count) * 100f, 0, 0);
+			movePos = CardPlacementSystem.Instance.playboard.transform.position + new Vector3((CardPlacementSystem.Instance.playboardDeck.cardsInDeck.Count+1) * 100f, 0, 0);
 
 
 			MoveCard(cardInstance, movePos);
@@ -176,17 +176,22 @@ public class EnemyPreset : MonoBehaviour
 				honestReaction.PlayHappy();
 			}
 			honestReaction.PlayNeutral();
-			yield return new WaitForSeconds(2f);
+			yield return new WaitForSeconds(1f);
 		}
 
 		PlayerProperties.Instance.TakeDamage(damage);
 		DamageResistance = damageResistance;
 		currentTurnIndex++;
 
+		yield return new WaitForSeconds(1f);
+		
 		int count = CardPlacementSystem.Instance.playboard.transform.childCount;
 		for (int j = 0; j < count; j++)
 		{
-			Destroy(CardPlacementSystem.Instance.playboard.transform.GetChild(j).gameObject);
+			MoveCard(CardPlacementSystem.Instance.playboard.transform.GetChild(j).gameObject, cardSpawnPosition.position);
+			Destroy(CardPlacementSystem.Instance.playboard.transform.GetChild(j).gameObject, 0.5f);
+			yield return new WaitForSeconds(0.3f);
+			
 		}
 		nextTurn.SetActive(true);
 		CardPlacementSystem.Instance.turnBlocker.SetActive(false);

@@ -87,6 +87,7 @@ public class CardPlacementSystem : MonoBehaviour
 
     public async void StartGame()
     {
+        turnBlocker.SetActive(true);
         playerDialog.StartText(playerPhrases);
         await UniTask.Delay(TimeSpan.FromSeconds(playerPhrases[0].Length * 0.1f + 1f));
         
@@ -117,7 +118,7 @@ public class CardPlacementSystem : MonoBehaviour
         
         movePos = hand.transform.position + new Vector3((handDeck.cardsInDeck.Count) * 100f, 0, 0);
 
-        card.GetComponent<RectTransform>().sizeDelta = new Vector2(66, 100);
+        card.GetComponent<RectTransform>().sizeDelta = new Vector2(66f, 100f);
         card.GetComponent<CardLogic>().currentContainer = handDeck;
         
         await MoveCard(card, movePos);
@@ -158,15 +159,16 @@ public class CardPlacementSystem : MonoBehaviour
 		StartCoroutine(enemyPreset.TakeTurn());
 	}
 
-    public void StartTurn()
+    public async void StartTurn()
     {
         enemyPreset.outputField.text = "";
-        GiveCardsToPlayer(cardTakeAmount);
+        await GiveCardsToPlayer(cardTakeAmount);
         turnBlocker.SetActive(false);
         PlayerProperties.Instance.SetResistance(0);
+        endTurnGO.SetActive(true);
     }
     
-    public async void GiveCardsToPlayer(int count)
+    public async UniTask GiveCardsToPlayer(int count)
     {
         for (int i = 0; i < count; i++)
         {
