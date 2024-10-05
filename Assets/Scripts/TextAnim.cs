@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TextAnim : MonoBehaviour
 {
@@ -28,7 +25,9 @@ public class TextAnim : MonoBehaviour
         _button.AddComponent<EventTrigger>();
         _button.GetComponent<EventTrigger>().triggers.Add(bigButt);
         _button.GetComponent<EventTrigger>().triggers.Add(smallButt);
-        
+
+
+        TextAnim textAnim;
     }
     
     
