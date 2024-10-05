@@ -2941,21 +2941,18 @@ MonoBehaviour:
   currentTurnIndex: 0
   presets:
   - cards:
-    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
-    - {fileID: 5949480487649978953, guid: bbae016ec2057ba43a0da7b8c26e9950, type: 3}
-    - {fileID: 5949480487649978953, guid: 2723735e47c16ee4c9a40d137ce445a3, type: 3}
+    - {fileID: 5949480487649978953, guid: 593309e81834ef342a726d62efd43c09, type: 3}
+    - {fileID: 5949480487649978953, guid: b967770c87631ca46b253e3c07c3725e, type: 3}
   - cards:
-    - {fileID: 5949480487649978953, guid: d5e08edc24847e040bdd034fe2cca138, type: 3}
-    - {fileID: 5949480487649978953, guid: d5e08edc24847e040bdd034fe2cca138, type: 3}
-    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
+    - {fileID: 5949480487649978953, guid: d783f0067b91e844080ff1befa94244d, type: 3}
+    - {fileID: 5949480487649978953, guid: a8d47f71f13d9004a8a9b50110ea2474, type: 3}
   - cards:
-    - {fileID: 5949480487649978953, guid: 2723735e47c16ee4c9a40d137ce445a3, type: 3}
-    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
-    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
+    - {fileID: 5949480487649978953, guid: a9ed543ad09969e43a5f518a557fae74, type: 3}
+    - {fileID: 5949480487649978953, guid: be7b0116a4b0d724c8e034d5f8bf357f, type: 3}
+    - {fileID: 5949480487649978953, guid: c01069374a4026340a1f48c15144a8a6, type: 3}
   - cards:
-    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
-    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
-    - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
+    - {fileID: 5949480487649978953, guid: 593309e81834ef342a726d62efd43c09, type: 3}
+    - {fileID: 5949480487649978953, guid: 06b3476575fedc44483530c11f7c9f58, type: 3}
   playedCards: []
   player: {fileID: 1453342270}
   HP: 20
@@ -2964,7 +2961,7 @@ MonoBehaviour:
   HPBar: {fileID: 487264367}
   winReward: 0
   outputField: {fileID: 428974293}
-  honestReaction: {fileID: 1748113290}
+  honestReaction: {fileID: 0}
   nextTurn: {fileID: 397711024}
   isDead: 0
 --- !u!4 &1036650002
@@ -3236,7 +3233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b74620afbb51443a211c11a1619c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1453342270}
   enemy: {fileID: 1036650001}
   cardsField: {fileID: 1422140622}
   outputField: {fileID: 1001300996}
@@ -5159,16 +5155,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allCards:
-  - {fileID: 5949480487649978953, guid: 1e4dde8cfcd3f234d92ac188cc6ebcd1, type: 3}
-  - {fileID: 5949480487649978953, guid: 17956a5759dddc148946b248f1a0a641, type: 3}
-  - {fileID: 5949480487649978953, guid: 4c516b395da9d1246b2d993e68d11060, type: 3}
-  - {fileID: 5949480487649978953, guid: 1954a10eb57f96a489c03f23130d868d, type: 3}
-  - {fileID: 5949480487649978953, guid: d5e08edc24847e040bdd034fe2cca138, type: 3}
-  - {fileID: 5949480487649978953, guid: 2723735e47c16ee4c9a40d137ce445a3, type: 3}
-  - {fileID: 5949480487649978953, guid: 2a4d58be6b073b544930e7c94c51637b, type: 3}
-  - {fileID: 5949480487649978953, guid: e2b1d9ec87e7e9e4c9821c618439fff8, type: 3}
-  - {fileID: 5949480487649978953, guid: 33e016a3f2e6825408a9fe376635203c, type: 3}
-  - {fileID: 5949480487649978953, guid: bbae016ec2057ba43a0da7b8c26e9950, type: 3}
+  - {fileID: 5949480487649978953, guid: a9ed543ad09969e43a5f518a557fae74, type: 3}
+  - {fileID: 5949480487649978953, guid: 593309e81834ef342a726d62efd43c09, type: 3}
+  - {fileID: 5949480487649978953, guid: f739807b52c504647b3cdfc8ab8594af, type: 3}
+  - {fileID: 5949480487649978953, guid: 06b3476575fedc44483530c11f7c9f58, type: 3}
+  - {fileID: 5949480487649978953, guid: b967770c87631ca46b253e3c07c3725e, type: 3}
+  - {fileID: 5949480487649978953, guid: d783f0067b91e844080ff1befa94244d, type: 3}
+  - {fileID: 5949480487649978953, guid: 524379592faf03f4f8798a3a20a5fbe2, type: 3}
+  - {fileID: 5949480487649978953, guid: a8d47f71f13d9004a8a9b50110ea2474, type: 3}
+  - {fileID: 5949480487649978953, guid: c01069374a4026340a1f48c15144a8a6, type: 3}
   lockedCards: []
   playerDeck: {fileID: 1726593870}
   playerHandDeck: {fileID: 0}
