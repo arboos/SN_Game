@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -30,6 +31,9 @@ public class Shop : MonoBehaviour
         foreach (var item in itemsInShop)
         {
             var itemSpawned = Instantiate(buttonPrefab, cardsPool);
+            itemSpawned.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
+                item.GetComponent<CardInfo>().Price.ToString();
+            
             itemSpawned.AddComponent<TextAnim>();
             itemSpawned.GetComponent<Image>().sprite = item.GetComponent<Image>().sprite;
             itemSpawned.GetComponent<Button>().onClick.AddListener(delegate
@@ -45,7 +49,7 @@ public class Shop : MonoBehaviour
     {
         if (PlayerProperties.Instance.fame >= price)
         {
-            // Receive fame!!!!!!!! 
+            PlayerProperties.Instance.fame -= price;
 
             button.interactable = false;
 
