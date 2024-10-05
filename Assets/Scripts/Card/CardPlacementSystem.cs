@@ -31,11 +31,14 @@ public class CardPlacementSystem : MonoBehaviour
     
     [Header("Lose phrases")]
     public List<string> playerPhrasesLose;
-    public float timeToWaitPlayerLose;
     public List<string> enemyPhrasesLose;
-    public float timeToWaitEnemyLose;
     
 
+    [Header("Win phrases")]
+    public List<string> playerPhrasesWin;
+    public List<string> enemyPhrasesWin;
+    
+    [Header("Other")]
     public CharacterDialog playerDialog;
     
     
