@@ -3142,8 +3142,8 @@ MonoBehaviour:
     - {fileID: 5949480487649978953, guid: 593309e81834ef342a726d62efd43c09, type: 3}
     - {fileID: 5949480487649978953, guid: 06b3476575fedc44483530c11f7c9f58, type: 3}
   playedCards: []
-  HP: 15
-  MaxHP: 15
+  HP: 20
+  MaxHP: 20
   DamageResistance: 0
   HPBar: {fileID: 487264367}
   winReward: 0
@@ -4099,8 +4099,8 @@ RectTransform:
   m_GameObject: {fileID: 1334018595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.56, y: 1.56, z: 1.56}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 397711025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6196,7 +6196,7 @@ MonoBehaviour:
   shop: {fileID: 4550706082738187551}
   turnBlocker: {fileID: 41030385}
   endTurnGO: {fileID: 656837083}
-  nextTurnGO: {fileID: 0}
+  nextTurnGO: {fileID: 397711024}
 --- !u!114 &2049008285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6515,8 +6515,8 @@ RectTransform:
   m_GameObject: {fileID: 2144262606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.56, y: 1.56, z: 1.56}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 656837084}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
