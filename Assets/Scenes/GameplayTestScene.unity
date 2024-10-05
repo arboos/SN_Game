@@ -5038,7 +5038,22 @@ MonoBehaviour:
   maxHandCapacity: 8
   maxPlayboardCapacity: 8
   cardTakeAmount: 2
-  turnManager: {fileID: 0}
+  cardTakeStart: 0
+  turnManager: {fileID: 1110352147}
+  playerPhrases:
+  - "\u043F\u0440\u043E\u0432\u0435\u0440\u043A\u0430 1"
+  - "\u0433\u043E\u043B\u043E\u0441\u0443\u0435\u043C \u0437\u0430 \u0442\u0440\u0430\u043C\u043F\u0430
+    \u0434\u0430\u0432\u0430\u0439\u0442\u0435 \u0434\u0430\u0432\u0430\u0439\u0442\u0435"
+  - 12345
+  enemyPhrases:
+  - "\u0442\u044B \u0432\u0438\u0434\u0438\u0448\u044C \u043A\u0430\u043A\u0438\u0435
+    \u0443 \u043C\u0435\u043D\u044F \u043E\u0433\u0440\u043E\u043C\u043D\u044B\u0435
+    \u044F\u0439\u0446\u0430?"
+  - "\u0439\u043E\u0443))"
+  playerDialog: {fileID: 4935590246845627811}
+  timeToWaitPlayer: 10
+  enemyDialog: {fileID: 4935590246845627811}
+  timeToWaitEnemy: 0
   deck: {fileID: 1726593870}
   playboardDeck: {fileID: 1422140622}
   handDeck: {fileID: 727174417}
@@ -5396,7 +5411,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 336.24, y: 0}
+  m_AnchoredPosition: {x: 170.77002, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &841522536976933243
@@ -5743,6 +5758,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogText: {fileID: 5023627790602500426}
   dialogPanel: {fileID: 8497566850692239123}
+  alignmentLeft: 1
 --- !u!114 &5023627790602500426
 MonoBehaviour:
   m_ObjectHideFlags: 0
