@@ -14,6 +14,7 @@ public class Shop : MonoBehaviour
     public Transform cardsPool;
 
     public GameObject buttonPrefab;
+    
 
 
     public void Open()
@@ -44,7 +45,7 @@ public class Shop : MonoBehaviour
     {
         if (PlayerProperties.Instance.fame >= price)
         {
-            // Receive fame!!!!!!!!
+            // Receive fame!!!!!!!! 
 
             button.interactable = false;
 
