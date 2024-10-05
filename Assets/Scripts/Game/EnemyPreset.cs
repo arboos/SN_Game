@@ -49,7 +49,7 @@ public class EnemyPreset : MonoBehaviour
 			DamageResistance = Mathf.Clamp(DamageResistance - resistancePenetration,-100,100);
 			HP -= Mathf.Clamp(damage - DamageResistance,0,1000);
 			UpdateViewModels();
-			if (HP - (int)(damage * DamageResistance) <= 0)
+			if (HP - damage - DamageResistance <= 0)
 			{
 				HP = 0;
 				UpdateViewModels();

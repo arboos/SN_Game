@@ -7,6 +7,7 @@ public class CardInfo : MonoBehaviour
     public string Name;
     public int Damage;
     public int DamageResistance;
+    public int DamagePenetration;
     public int Heal;
 
     public int Price;

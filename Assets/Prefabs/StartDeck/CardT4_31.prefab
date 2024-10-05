@@ -168,7 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: "12 \u0431\u0443\u0439\u043D\u044B\u0445 \u0432\u0435\u0442\u0440\u043E\u0432"
   Damage: 3
-  DamageResistance: 3
+  DamageResistance: 0
+  DamagePenetration: 0
   Heal: 0
   Price: 0
   CardType: 4
