@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -76,11 +77,26 @@ public class EnemyPreset : MonoBehaviour
 	public void UpdateViewModels()
 	{
 		//HPBar.fillAmount = HP / (float)MaxHP;
-		CardPlacementSystem.Instance.textHP_Enemy.text = "Слава: "+ HP.ToString() +"\nЗащита: "+DamageResistance;
+		CardPlacementSystem.Instance.textHP_Enemy.text = "пїЅпїЅпїЅпїЅпїЅ: "+ HP.ToString() +"\nпїЅпїЅпїЅпїЅпїЅпїЅ: "+DamageResistance;
 	}
 
-	private void Die()
+	private async void Die()
 	{
+		await UniTask.Delay(TimeSpan.FromSeconds(2f));
+		
+		CardPlacementSystem.Instance.hand.SetActive(false);
+		CardPlacementSystem.Instance.playboard.SetActive(false);
+		
+		CardPlacementSystem.Instance.playerDialog.gameObject.SetActive(true);
+		CardPlacementSystem.Instance.playerDialog.StartText(CardPlacementSystem.Instance.playerPhrasesWin);
+
+		await UniTask.Delay(TimeSpan.FromSeconds(CardPlacementSystem.Instance.playerPhrasesWin[0].Length * 0.1f + 2f));
+		
+		CardPlacementSystem.Instance.enemyDialog.gameObject.SetActive(true);
+		CardPlacementSystem.Instance.enemyDialog.StartText(CardPlacementSystem.Instance.enemyPhrasesWin);
+
+		await UniTask.Delay(TimeSpan.FromSeconds(CardPlacementSystem.Instance.enemyPhrasesWin[0].Length * 0.1f + 2f));
+		
 		PlayerProperties.Instance.fame += winReward;
 		CardPlacementSystem.Instance.shop.gameObject.SetActive(true);
 		CardPlacementSystem.Instance.shop.Open();
@@ -106,7 +122,7 @@ public class EnemyPreset : MonoBehaviour
 			var cardInstance = Instantiate(cardObject, CardPlacementSystem.Instance.playboard.transform);
 			cardInstance.transform.GetChild(0).gameObject.SetActive(true);
 			playedCards.Add(cardInstance);
-			outputField.text = "Враг:\n";
+			outputField.text = "пїЅпїЅпїЅпїЅ:\n";
 			CardInfo card = cardObject.GetComponent<CardInfo>();
 			damage += card.Damage;
 			if (card.DamageResistance != 0)
@@ -117,18 +133,18 @@ public class EnemyPreset : MonoBehaviour
 			//heal += card.Heal;
 			if (damage > 0)
 			{
-				outputField.text += "Урон: " + damage.ToString() + "\n";
+				outputField.text += "пїЅпїЅпїЅпїЅ: " + damage.ToString() + "\n";
 				honestReaction.PlayHappy();
 			}
 			honestReaction.PlayNeutral();
 			if (damageResistance != 1)
 			{
-				outputField.text += "Защита: " + (damageResistance).ToString() + "\n";
+				outputField.text += "пїЅпїЅпїЅпїЅпїЅпїЅ: " + (damageResistance).ToString() + "\n";
 			}
 			honestReaction.PlayNeutral();
 			if (heal > 0)
 			{
-				outputField.text += "Лечение: " + heal.ToString();
+				outputField.text += "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + heal.ToString();
 				honestReaction.PlayHappy();
 			}
 			honestReaction.PlayNeutral();
