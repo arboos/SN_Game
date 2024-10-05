@@ -65,6 +65,7 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 		currentContainer = currentParent.GetComponent<CardDeck>();
 		isPickedUp = false;
 		turnManager.PreCompilate();
+		PlayerProperties.Instance.audioSource.PlayOneShot(PlayerProperties.Instance.cardPlaced);
 		GetComponent<Image>().raycastTarget = true;
 	}
 
@@ -90,6 +91,7 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	{
 		if (!isPickedUp)
 		{
+			PlayerProperties.Instance.audioSource.PlayOneShot(PlayerProperties.Instance.cardTaken);
 			transform.SetParent(placementSystem.canvas.transform, true);
 			isPickedUp = true;
 			GetComponent<Image>().raycastTarget = false;

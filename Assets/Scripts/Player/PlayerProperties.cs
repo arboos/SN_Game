@@ -14,10 +14,19 @@ public class PlayerProperties : MonoBehaviour
 	[Header("UI/UX")]
 	[SerializeField] private Image hpBar;
 	public HonestReactions honestReaction;
+	[Header("Audio")]
+	public AudioSource audioSource;
+	public AudioClip defeat;
+	public AudioClip win;
+	public AudioClip cardPlaced;
+	public AudioClip cardTaken;
+	public AudioClip damaged;
+	public AudioClip healed;
 
 	private void Awake()
 	{
-		SceneManager.sceneLoaded += (Scene scene, LoadSceneMode mode) =>{
+		SceneManager.sceneLoaded += (Scene scene, LoadSceneMode mode) =>
+		{
 			honestReaction = GameObject.Find("HonestReaction").GetComponent<HonestReactions>();
 		};
 
@@ -48,6 +57,7 @@ public class PlayerProperties : MonoBehaviour
 		if ((int)(damage * damageResistance) > 0)
 		{
 			honestReaction.Shake(1);
+			audioSource.PlayOneShot(damaged);
 			honestReaction.PlayAngry();
 		}
 		if (fame - (int)(damage * damageResistance) <= 0)
@@ -69,6 +79,7 @@ public class PlayerProperties : MonoBehaviour
 	public void Heal(int heal)
 	{
 		//fame = Mathf.Clamp(fame + heal,0,maxHP);
+		audioSource.PlayOneShot(healed);
 		fame = fame + heal;
 		UpdateViewModels();
 	}
