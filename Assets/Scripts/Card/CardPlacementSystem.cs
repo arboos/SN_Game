@@ -64,10 +64,10 @@ public class CardPlacementSystem : MonoBehaviour
     public IEnumerator StartGame()
     {
         playerDialog.StartText(playerPhrases);
-        yield return timeToWaitPlayer;
+        yield return new WaitForSeconds(timeToWaitPlayer);
         
-        enemyDialog.StartText(playerPhrases);
-        yield return timeToWaitEnemy;
+        enemyDialog.StartText(enemyPhrases);
+        yield return new WaitForSeconds(timeToWaitEnemy);
         
         turnBlocker.SetActive(false);
 

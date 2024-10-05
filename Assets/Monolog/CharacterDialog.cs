@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections .Generic;
 using TMPro;
@@ -11,12 +12,18 @@ public class CharacterDialog : MonoBehaviour
 
     private RectTransform dialogPanelRectTransform;
     
-    [SerializeField] private bool alignmentLeft; 
-    
-    void Start()
+    [SerializeField] private bool alignmentLeft;
+
+    private void Start()
     {
         dialogText = dialogText.GetComponent<TextMeshProUGUI>();
         dialogPanelRectTransform = dialogPanel.GetComponent<RectTransform>();
+    }
+
+    private void Update()
+    {
+        if(alignmentLeft) dialogPanelRectTransform.position = new Vector3(dialogPanelRectTransform.rect.width/2f, 
+            dialogPanelRectTransform.position.y, dialogPanelRectTransform.position.z);
     }
 
     public void StartText(List<string> phrases)
@@ -32,12 +39,10 @@ public class CharacterDialog : MonoBehaviour
             dialogText.text = "";
             foreach (var letter in phrase)
             {
-                dialogText.text += letter.ToString();
-                if(alignmentLeft) dialogPanelRectTransform.position = new Vector3(dialogPanelRectTransform.rect.width/2, 
-                    dialogPanelRectTransform.position.y, dialogPanelRectTransform.position.z);
+                dialogText.text += letter.ToString(); 
                 yield return new WaitForSeconds(0.1f);
-                
             }
+            
             yield return new WaitForSeconds(0.5f);
         }
 

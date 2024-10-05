@@ -25,7 +25,7 @@ public class TurnManager : MonoBehaviour
 		}
 		catch
 		{
-			Debug.Log("out of range!");
+			
 		}
 		try
 		{
