@@ -29,6 +29,7 @@ public class Shop : MonoBehaviour
         foreach (var item in itemsInShop)
         {
             var itemSpawned = Instantiate(buttonPrefab, cardsPool);
+            itemSpawned.AddComponent<TextAnim>();
             itemSpawned.GetComponent<Image>().sprite = item.GetComponent<Image>().sprite;
             itemSpawned.GetComponent<Button>().onClick.AddListener(delegate
             {
@@ -42,14 +43,18 @@ public class Shop : MonoBehaviour
     public void BuyCard(GameObject card, Button button)
     {
         print("BUY CARD");
-        CardManager.Instance.allCards.Add(card);
-
+        
         button.interactable = false;
+        
+        Destroy(button.GetComponent<TextAnim>());
+
+        button.transform.localScale = Vector3.one;
         
         itemsInShop.Remove(card);
         
         card.GetComponent<CardLogic>().currentContainer = CardPlacementSystem.Instance.deck;
-        Destroy(card.GetComponent<TextAnim>());
+        
+        CardManager.Instance.allCards.Add(card);
         // Receive fame!!!!!!!!
     }
     
