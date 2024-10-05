@@ -52,12 +52,16 @@ public class MenuManager : MonoBehaviour
 	public void Pause()
 	{
 		pauseScreen.SetActive(true);
+		CardPlacementSystem.Instance.playerDialog.gameObject.SetActive(false);
+		CardPlacementSystem.Instance.enemyDialog.gameObject.SetActive(false);
 		Time.timeScale = 0;
 	}
 
 	public void Resume()
 	{
 		pauseScreen.SetActive(false);
+		CardPlacementSystem.Instance.playerDialog.gameObject.SetActive(true);
+		CardPlacementSystem.Instance.enemyDialog.gameObject.SetActive(true);
 		Time.timeScale = 1f;
 	}
 
