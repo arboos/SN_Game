@@ -3485,9 +3485,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b74620afbb51443a211c11a1619c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
-  cardsField: {fileID: 0}
-  outputField: {fileID: 0}
+  enemy: {fileID: 1036650001}
+  cardsField: {fileID: 1422140622}
+  outputField: {fileID: 1001300996}
   compilationSpeed: 0.2
 --- !u!4 &1110352148
 Transform:
@@ -5792,8 +5792,8 @@ MonoBehaviour:
   - {fileID: 5949480487649978953, guid: 3eecbfa493b9a5a41bf30d57a9c56413, type: 3}
   - {fileID: 5949480487649978953, guid: 1fe9ed45b1105ce4f963c042e5426dd0, type: 3}
   - {fileID: 5949480487649978953, guid: 775c1ab4d8432ed46be7b504881ccc61, type: 3}
-  playerDeck: {fileID: 0}
-  playerHandDeck: {fileID: 0}
+  playerDeck: {fileID: 1726593870}
+  playerHandDeck: {fileID: 727174417}
 --- !u!1 &1785260277
 GameObject:
   m_ObjectHideFlags: 0
