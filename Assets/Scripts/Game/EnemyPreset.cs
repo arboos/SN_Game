@@ -85,7 +85,6 @@ public class EnemyPreset : MonoBehaviour
 	{
 		StopAllCoroutines();
 		isDead = true;
-		await UniTask.Delay(TimeSpan.FromSeconds(2f));
 		
 		outputField.gameObject.SetActive(false);
 		GameObject.Find("TurnManager").GetComponent<TurnManager>().outputField.gameObject.SetActive(false);
@@ -95,6 +94,8 @@ public class EnemyPreset : MonoBehaviour
 		
 		CardPlacementSystem.Instance.hand.SetActive(false);
 		CardPlacementSystem.Instance.playboard.SetActive(false);
+		
+		await UniTask.Delay(TimeSpan.FromSeconds(2f));
 		
 		CardPlacementSystem.Instance.playerDialog.gameObject.SetActive(true);
 		CardPlacementSystem.Instance.playerDialog.StartText(CardPlacementSystem.Instance.playerPhrasesWin);
