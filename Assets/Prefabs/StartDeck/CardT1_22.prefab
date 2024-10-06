@@ -385,6 +385,8 @@ MonoBehaviour:
   isPickedUp: 0
   currentContainer: {fileID: 0}
   followMouseSpeed: 10
+  turnCoef: 0.2
+  pickedUpScale: 1.1
 --- !u!1 &6699652507509692067
 GameObject:
   m_ObjectHideFlags: 0

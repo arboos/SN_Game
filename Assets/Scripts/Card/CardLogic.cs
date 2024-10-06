@@ -13,8 +13,10 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	[SerializeField] private bool isPickedUp = false;
 	private TurnManager turnManager;
 	public CardDeck currentContainer;
-	
+	[Header("Drag settings")]
 	[SerializeField] private float followMouseSpeed;
+	[SerializeField] private float turnCoef = 1;
+	[SerializeField] private float pickedUpScale;
 
 	private void Awake()
 	{
@@ -58,8 +60,9 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 				namefield.gameObject.SetActive(false);
 			}
 		}
+		transform.localScale = new Vector3(1, 1, 1);
 		transform.SetParent(currentParent, false);
-		
+		transform.rotation = Quaternion.Euler(0, 0, 0);
 		currentContainer.RemoveCard(gameObject);
 		currentParent.GetComponent<CardDeck>().AddCardToDeck(gameObject);
 		currentContainer = currentParent.GetComponent<CardDeck>();
@@ -85,12 +88,14 @@ public class CardLogic : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 	private void Follow()
 	{
 		transform.position = Vector2.Lerp(transform.position, Input.mousePosition, Time.deltaTime * followMouseSpeed);
+		transform.rotation = Quaternion.Euler(0,0,  -(Input.mousePosition.x - transform.position.x)*turnCoef);
 	}
 
 	public void Pick()
 	{
 		if (!isPickedUp)
 		{
+			transform.localScale = new Vector3(pickedUpScale,pickedUpScale,pickedUpScale);
 			PlayerProperties.Instance.audioSource.PlayOneShot(PlayerProperties.Instance.cardTaken);
 			transform.SetParent(placementSystem.canvas.transform, true);
 			isPickedUp = true;
