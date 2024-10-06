@@ -2777,7 +2777,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.59866685, y: 1}
   m_AnchorMax: {x: 0.59866685, y: 1}
-  m_AnchoredPosition: {x: 447, y: -480}
+  m_AnchoredPosition: {x: 349, y: -480}
   m_SizeDelta: {x: 266.75, y: 54.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &861394483
@@ -3131,14 +3131,16 @@ MonoBehaviour:
   currentTurnIndex: 0
   presets:
   - cards:
-    - {fileID: 5949480487649978953, guid: b967770c87631ca46b253e3c07c3725e, type: 3}
+    - {fileID: 5949480487649978953, guid: dc361fef98c042141a3a10f20deddfea, type: 3}
   - cards:
     - {fileID: 5949480487649978953, guid: d783f0067b91e844080ff1befa94244d, type: 3}
-    - {fileID: 5949480487649978953, guid: a8d47f71f13d9004a8a9b50110ea2474, type: 3}
+    - {fileID: 5949480487649978953, guid: a9ed543ad09969e43a5f518a557fae74, type: 3}
+    - {fileID: 5949480487649978953, guid: 947b8568646a0f548931165323980bd8, type: 3}
+  - cards:
+    - {fileID: 5949480487649978953, guid: dc361fef98c042141a3a10f20deddfea, type: 3}
+    - {fileID: 5949480487649978953, guid: 3eecbfa493b9a5a41bf30d57a9c56413, type: 3}
   - cards:
     - {fileID: 5949480487649978953, guid: be7b0116a4b0d724c8e034d5f8bf357f, type: 3}
-    - {fileID: 5949480487649978953, guid: c01069374a4026340a1f48c15144a8a6, type: 3}
-  - cards:
     - {fileID: 5949480487649978953, guid: 593309e81834ef342a726d62efd43c09, type: 3}
     - {fileID: 5949480487649978953, guid: 06b3476575fedc44483530c11f7c9f58, type: 3}
   playedCards: []

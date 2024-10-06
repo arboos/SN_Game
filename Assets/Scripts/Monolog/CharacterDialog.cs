@@ -39,10 +39,9 @@ public class CharacterDialog : MonoBehaviour
             dialogText.text = "";
             foreach (var letter in phrase)
             {
-                dialogText.text += letter.ToString(); 
                 yield return new WaitForSeconds(0.1f);
-            }
-            
+				dialogText.text += letter.ToString();
+			}
             yield return new WaitForSeconds(0.5f);
         }
 

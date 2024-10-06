@@ -89,11 +89,12 @@ public class EnemyPreset : MonoBehaviour
 		outputField.gameObject.SetActive(false);
 		GameObject.Find("TurnManager").GetComponent<TurnManager>().outputField.gameObject.SetActive(false);
 
-		CardPlacementSystem.Instance.endTurnGO.SetActive(false);
-		CardPlacementSystem.Instance.nextTurnGO.SetActive(false);
+		Destroy(CardPlacementSystem.Instance.endTurnGO.gameObject);
+		Destroy(CardPlacementSystem.Instance.nextTurnGO.gameObject);
 		
 		CardPlacementSystem.Instance.hand.SetActive(false);
 		CardPlacementSystem.Instance.playboard.SetActive(false);
+
 		
 		await UniTask.Delay(TimeSpan.FromSeconds(2f));
 		

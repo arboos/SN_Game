@@ -102,6 +102,9 @@ public class PlayerProperties : MonoBehaviour
 	{
 		await UniTask.Delay(TimeSpan.FromSeconds(2f));
 
+		Destroy(CardPlacementSystem.Instance.endTurnGO.gameObject);
+		Destroy(CardPlacementSystem.Instance.nextTurnGO.gameObject);
+
 		CardPlacementSystem.Instance.hand.SetActive(false);
 		CardPlacementSystem.Instance.playboard.SetActive(false);
 

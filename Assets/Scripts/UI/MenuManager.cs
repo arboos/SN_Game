@@ -54,7 +54,7 @@ public class MenuManager : MonoBehaviour
 		pauseScreen.SetActive(true);
 		CardPlacementSystem.Instance.playerDialog.gameObject.SetActive(false);
 		CardPlacementSystem.Instance.enemyDialog.gameObject.SetActive(false);
-		Time.timeScale = 0;
+		Time.timeScale = 0.000000001f;
 	}
 
 	public void Resume()
